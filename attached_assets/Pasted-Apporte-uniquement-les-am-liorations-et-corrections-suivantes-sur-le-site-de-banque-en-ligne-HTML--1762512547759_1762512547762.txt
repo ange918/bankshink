@@ -1,0 +1,39 @@
+Apporte uniquement les améliorations et corrections suivantes sur le site de banque en ligne (HTML, CSS et JavaScript) :
+
+1. Système de gestion des langues
+
+   - Lorsqu’un utilisateur sélectionne une langue, il doit être redirigé vers la version complète du site traduite dans cette langue, et non seulement changer le texte sur la page actuelle.
+   - Chaque langue doit avoir sa propre version (ex. "/fr", "/en", "/nl", "/et", "/lt", "/sk").
+   - Le changement de langue doit garder la page visitée (ex. “Nos offres” reste ouverte, mais traduite).
+   - Gérer le contenu de manière propre (fichiers JSON de traduction ou pages HTML distinctes).
+
+2. Formulaire du simulateur – Étape 4 sur mobile
+
+   - L’affichage de la 4ᵉ étape du simulateur n’est pas adapté sur mobile (champs mal alignés, débordements, boutons partiellement visibles).
+   - Corriger la mise en page avec du CSS responsive :
+      - Champs alignés verticalement et bien visibles.
+      - Boutons “Suivant” et “Précédent” toujours accessibles.
+      - Aucune coupure ni débordement horizontal.
+      - Layout fluide et bien centré pour toutes tailles d’écran.
+
+3. Section “Notre équipe” (page À propos)
+
+   - Remplacer les avatars actuels par de vraies images de personnes (photos libres ou réalistes).
+   - Chaque image doit être :
+      - Bien centrée et de taille uniforme (ex. 150x150px, en cercle).
+      - Munie d’un "alt" descriptif.
+      - Cohérente en style et alignement avec le texte des noms et postes.
+
+4. Images et sous-menus dans les pages internes de “Nos offres”
+
+   - Les images à l’intérieur des sous-pages de “Nos offres” sont trop grandes et mal centrées, que ce soit sur mobile ou PC.
+   - Corriger le style pour que :
+      - Les images soient centrées horizontalement.
+      - La taille soit harmonieuse (ni trop grande ni déformée) sur tous les écrans.
+      - Utiliser "object-fit: cover" et "max-width: 100%; height: auto;" pour la responsivité.
+   - Sur PC, certains sous-menus sont partiellement invisibles ou décalés dans un coin :
+      - Vérifier le positionnement ("z-index", "overflow", "position" et "display").
+      - Corriger pour que tous les sous-menus s’affichent complètement et soient bien lisibles.
+      - Tester sur plusieurs résolutions d’écran pour s’assurer que tout est accessible.
+
+Merci d’appliquer uniquement ces modifications et d’afficher les fichiers HTML, CSS et JS modifiés après mise à jour.

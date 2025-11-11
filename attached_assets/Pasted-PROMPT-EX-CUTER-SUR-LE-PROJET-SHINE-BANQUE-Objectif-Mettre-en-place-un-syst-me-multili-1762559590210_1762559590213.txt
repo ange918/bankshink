@@ -1,0 +1,90 @@
+PROMPT À EXÉCUTER SUR LE PROJET SHINE BANQUE 🌍
+
+🎯 Objectif :
+Mettre en place un système multilingue complet et persistant sur tout le site Shine Banque.
+Quand l’utilisateur choisit une langue, **tout le site (toutes les pages et textes)** s’affiche dans cette langue.
+La langue choisie doit rester active sur toutes les pages, même après navigation ou actualisation, jusqu’à ce que l’utilisateur sélectionne une autre langue.
+
+-----------------------
+🔧 Tâches à exécuter :
+1️⃣ Vérifie le système de gestion de langues existant.
+   - Corrige le fait que certaines sections restent en français.
+   - Si nécessaire, restructure le code pour gérer la traduction à partir de fichiers JSON (ex : `/lang/fr.json`, `/lang/en.json`, etc.).
+
+2️⃣ Mets à jour le comportement du sélecteur de langue :
+   - Lorsqu’un utilisateur choisit une langue, sauvegarde ce choix dans le **localStorage** (ou un cookie si nécessaire).
+   - À chaque chargement de page, détecte automatiquement la langue enregistrée et charge la traduction correspondante.
+   - Si aucune langue n’est enregistrée, le site démarre par défaut en français 🇫🇷.
+
+3️⃣ Traduire **intégralement toutes les pages du site :**
+   - Page d’accueil  
+   - Page “À propos”  
+   - Page “Nos offres” et tous ses sous-menus  
+   - Page “FAQ”  
+   - Page “Contact”  
+   - Page “Simulateur”  
+   - Toute autre page existante.
+
+4️⃣ Langues à prendre en charge :
+   - Français 🇫🇷 (fr)
+   - Anglais 🇬🇧 (en)
+   - Espagnol 🇪🇸 (es)
+   - Italien 🇮🇹 (it)
+   - Allemand 🇩🇪 (de)
+   - Portugais 🇵🇹 (pt)
+   - Néerlandais 🇳🇱 (nl)
+   - Estonien 🇪🇪 (et)
+   - Lituanien 🇱🇹 (lt)
+   - Slovaque 🇸🇰 (sk)
+
+5️⃣ Chaque traduction doit être complète :
+   - Aucun texte français ne doit apparaître dans les autres langues.
+   - Traduis les titres, paragraphes, menus, boutons, formulaires, FAQ, labels, popups, etc.
+   - Adapte les devises, dates et formats de temps à la langue correspondante.
+
+6️⃣ Comportement attendu :
+   - Quand je change de langue, **le texte de la page actuelle change immédiatement** sans rechargement complet.
+   - Si je navigue vers une autre page, la langue choisie reste appliquée.
+   - Si je rafraîchis la page, la langue choisie reste mémorisée.
+   - Si je choisis une autre langue, tout le site se met à jour dans cette langue.
+
+7️⃣ Implémentation :
+   - Crée un répertoire `/lang` contenant les fichiers de traduction JSON (un par langue).
+   - Exemple : `lang/fr.json`, `lang/en.json`, etc.
+   - Chaque fichier contient un objet structuré avec les clés du site :
+     ```
+     {
+       "home": {
+         "hero_title": "Bienvenue à Shine Banque",
+         "hero_subtitle": "Votre partenaire financier de confiance"
+       },
+       "about": {
+         "title": "À propos de nous",
+         "team_title": "Notre équipe"
+       }
+     }
+     ```
+   - Charge la traduction avec `fetch()` selon la langue active.
+
+8️⃣ Corrige l’affichage du menu langue :
+   - Les drapeaux doivent s’afficher à côté du nom de chaque langue.
+   - Le texte et les drapeaux doivent rester visibles sans survol.
+   - Mets à jour le design pour qu’il s’intègre harmonieusement (fond bleu clair ou blanc selon le thème du site).
+
+-----------------------
+💡 Détails visuels :
+- Respecte les couleurs principales (bleu et blanc).
+- Conserve la police Montserrat.
+- Aucun changement de mise en page ne doit altérer le design actuel.
+
+-----------------------
+🧩 Résultat attendu :
+✅ Quand un utilisateur choisit une langue, **tout le site s’affiche dans cette langue**.
+✅ La langue reste active sur toutes les pages, même après navigation ou actualisation.
+✅ Le système est léger, propre, rapide et maintenable.
+✅ Toutes les traductions sont correctes et naturelles.
+
+-----------------------
+🧠 Vérification finale :
+À la fin, affiche dans la console :
+"✅ Système multilingue persistant activé avec succès sur Shine Banque"
