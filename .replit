@@ -12,10 +12,10 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "web_server"
+args = "Shine BK Website"
 
 [[workflows.workflow]]
-name = "web_server"
+name = "Shine BK Website"
 author = "agent"
 
 [[workflows.workflow.tasks]]
@@ -31,8 +31,8 @@ localPort = 5000
 externalPort = 80
 
 [[ports]]
-localPort = 44283
-externalPort = 3001
+localPort = 33899
+externalPort = 3000
 
 [nix]
 channel = "stable-25_05"
