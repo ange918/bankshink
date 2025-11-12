@@ -135,20 +135,32 @@ Un système de traduction complet a été implémenté avec 9 langues :
 Le fichier `js/translations.js` contient toutes les traductions et le système de changement de langue.
 Tous les éléments du site sont traduits : navigation, menu dropdown, formulaires, boutons, messages.
 
-## Système d'emails SMTP
-Un système d'envoi d'emails a été intégré avec Flask :
+## Système d'emails SMTP (2 systèmes)
+
+### 1. Système Python/Flask (pour le simulateur)
 - **API endpoint** : `/api/send-email` (POST)
 - **Templates multilingues** : 9 langues avec subject, greeting, messages, footer
-- **Configuration** : Via fichier `.env` (voir `.env.example` et `CONFIGURATION_SMTP.md`)
+- **Configuration** : Via Replit Secrets (variables d'environnement)
 - **Intégration** : Envoi automatique après soumission du simulateur
 - **Sécurité** : Gestion des erreurs et validation des données
 
-### Configuration requise pour les emails
-1. Créer un fichier `.env` depuis `.env.example`
-2. Configurer les paramètres SMTP (Gmail recommandé avec mot de passe d'application)
-3. Redémarrer le serveur Flask
+### 2. Système PHP/PHPMailer (nouveau - 12/11/2025)
+- **Script** : `process_form.php`
+- **Bibliothèque** : PHPMailer 7.0 avec gestion SMTP avancée
+- **Fonctionnalités** :
+  - Envoi de 2 emails : admin (avec pièces jointes) + client (confirmation HTML)
+  - Détection automatique du chiffrement SMTP (SMTPS/STARTTLS selon le port)
+  - Nettoyage automatique des fichiers uploadés (bloc finally)
+  - Gestion sécurisée des credentials via Replit Secrets
+- **Test** : Page `/test_form.html` disponible
+- **Documentation** : Voir `README_EMAIL_SYSTEM.md` pour les détails complets
 
-Consultez `CONFIGURATION_SMTP.md` pour les instructions détaillées.
+### Configuration requise pour les emails
+Les deux systèmes utilisent les **Replit Secrets** (variables d'environnement sécurisées) :
+- SMTP_HOST, SMTP_USERNAME, SMTP_PASSWORD, SMTP_PORT
+- SMTP_FROM_EMAIL, SMTP_FROM_NAME, ADMIN_EMAIL
+
+Consultez `README_EMAIL_SYSTEM.md` pour le système PHP et `CONFIGURATION_SMTP.md` pour le système Python.
 
 ## Carrousel des partenaires
 Le carrousel affiche 11 logos réels d'institutions financières européennes :
