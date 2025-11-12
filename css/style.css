@@ -205,7 +205,7 @@ nav ul li a:hover {
 }
 
 .hero {
-    background: linear-gradient(135deg, rgba(0, 43, 122, 0.9) 0%, rgba(0, 68, 204, 0.9) 100%), url('../images/modern_city_skyline__fd7a78cc.jpg') center/cover;
+    background: linear-gradient(135deg, rgba(0, 43, 122, 0.65) 0%, rgba(0, 68, 204, 0.65) 100%), url('../images/modern_city_skyline__fd7a78cc.jpg') center/cover;
     color: var(--white);
     padding: 150px 0;
     position: relative;
@@ -280,7 +280,7 @@ nav ul li a:hover {
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-top: 40px;
 }
@@ -377,6 +377,56 @@ nav ul li a:hover {
 .engagement-card p {
     color: var(--text-light);
     font-size: 0.95rem;
+}
+
+.credit-info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+    padding: 0;
+}
+
+.credit-info-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.credit-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary-blue);
+}
+
+.credit-info-icon {
+    font-size: 3rem;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+.credit-info-card h3 {
+    font-size: 1.2rem;
+    color: var(--dark-blue);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.credit-info-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin: 10px 0;
+}
+
+.credit-info-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .stats-grid {
@@ -710,6 +760,7 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
     margin-bottom: 40px;
+    align-items: flex-start;
 }
 
 .footer-section h3 {
@@ -773,6 +824,16 @@ footer {
     color: var(--text-dark);
 }
 
+@media (max-width: 992px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .engagements-grid-six {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 968px) {
     .hero .container {
         grid-template-columns: 1fr;
@@ -787,17 +848,9 @@ footer {
         max-height: 300px;
     }
     
-    .products-grid {
-        grid-template-columns: 1fr;
-    }
-    
     .about-content {
         grid-template-columns: 1fr;
         gap: 40px;
-    }
-    
-    .engagements-grid-six {
-        grid-template-columns: repeat(2, 1fr);
     }
     
     .testimonial-card.active {
@@ -848,7 +901,15 @@ footer {
         flex-direction: column;
     }
     
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
     .engagements-grid-six {
+        grid-template-columns: 1fr;
+    }
+    
+    .credit-info-cards {
         grid-template-columns: 1fr;
     }
     
