@@ -27,3 +27,8 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# PHP
+vendor/
+composer.phar
+uploads/
