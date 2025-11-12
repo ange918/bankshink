@@ -95,6 +95,9 @@ Le workflow est configuré automatiquement pour démarrer le serveur.
 - ✅ pages/credit-automobile.html - Crédit automobile (3 000€ à 80 000€)
 
 ## Modifications récentes
+- 12/11/2025 : **SESSION 3** - Simplification des pages de crédits et rajeunissement de l'équipe
+  - ✅ **Suppression des cartes d'information** : Retrait des sections "Montant/Durée/Taux" de toutes les 9 pages de crédits pour un design plus épuré
+  - ✅ **Mise à jour des photos de l'équipe** : Remplacement des photos des 3 membres dirigeants (Jean Dupont, Marie Martin, Pierre Bernard) par des professionnels seniors sur la page À propos
 - 07/11/2025 : **SESSION 2** - Système d'emails SMTP et carrousel partenaires
   - ✅ **Traductions complètes** : Menu dropdown "Nos Offres" traduit dans les 9 langues
   - ✅ **Carrousel partenaires** : Remplacement par 11 logos réels (Nickel, CIC, Slovenská sporiteľňa, Swedbank, mBank, BBVA, Trade Republic, Orange Bank, BRED, UE, Portugal)
