@@ -36,6 +36,8 @@ $adminEmail = getenv('ADMIN_EMAIL');
 $fromEmail = getenv('SMTP_FROM_EMAIL') ?: $smtpUsername;
 $fromName = getenv('SMTP_FROM_NAME') ?: 'Shine Banque';
 
+$smtpSecure = ($smtpPort == 465) ? PHPMailer::ENCRYPTION_SMTPS : PHPMailer::ENCRYPTION_STARTTLS;
+
 $requiredFields = [];
 $formData = [];
 
@@ -85,8 +87,9 @@ try {
     $mail1->SMTPAuth = true;
     $mail1->Username = $smtpUsername;
     $mail1->Password = $smtpPassword;
-    $mail1->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mail1->SMTPSecure = $smtpSecure;
     $mail1->Port = $smtpPort;
+    $mail1->SMTPAutoTLS = true;
     $mail1->CharSet = 'UTF-8';
     
     $mail1->setFrom($fromEmail, $fromName);
@@ -113,7 +116,7 @@ try {
     $mail1->Body = $bodyAdmin;
     
     if (!$mail1->send()) {
-        sendResponse(false, "Erreur lors de l'envoi à l'administrateur: " . $mail1->ErrorInfo);
+        throw new Exception("Erreur lors de l'envoi à l'administrateur: " . $mail1->ErrorInfo);
     }
     
     $mail2 = new PHPMailer(true);
@@ -122,8 +125,9 @@ try {
     $mail2->SMTPAuth = true;
     $mail2->Username = $smtpUsername;
     $mail2->Password = $smtpPassword;
-    $mail2->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mail2->SMTPSecure = $smtpSecure;
     $mail2->Port = $smtpPort;
+    $mail2->SMTPAutoTLS = true;
     $mail2->CharSet = 'UTF-8';
     
     $mail2->setFrom($fromEmail, $fromName);
@@ -188,17 +192,17 @@ p {
     $mail2->Body = $bodyClient;
     
     if (!$mail2->send()) {
-        sendResponse(false, "Erreur lors de l'envoi de la confirmation: " . $mail2->ErrorInfo);
-    }
-    
-    foreach ($uploadedFiles as $file) {
-        if (file_exists($file['path'])) {
-            unlink($file['path']);
-        }
+        throw new Exception("Erreur lors de l'envoi de la confirmation: " . $mail2->ErrorInfo);
     }
     
     sendResponse(true, 'Votre demande a bien été envoyée. Vous recevrez un mail de confirmation dans quelques instants.');
     
 } catch (Exception $e) {
     sendResponse(false, "Erreur lors de l'envoi: " . $e->getMessage());
+} finally {
+    foreach ($uploadedFiles as $file) {
+        if (file_exists($file['path'])) {
+            unlink($file['path']);
+        }
+    }
 }
