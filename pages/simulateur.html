@@ -210,7 +210,76 @@
             background: #f5f5f5;
         }
 
+        .toast-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 10000;
+            transform: translateX(400px);
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+            max-width: 400px;
+            border-left: 5px solid;
+        }
+
+        .toast-notification.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .toast-notification.success {
+            border-left-color: #00c853;
+        }
+
+        .toast-notification.error {
+            border-left-color: #f44336;
+        }
+
+        .toast-notification i {
+            font-size: 28px;
+        }
+
+        .toast-notification.success i {
+            color: #00c853;
+        }
+
+        .toast-notification.error i {
+            color: #f44336;
+        }
+
+        .toast-content {
+            flex: 1;
+        }
+
+        .toast-title {
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .toast-message {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
         @media (max-width: 768px) {
+            .toast-notification {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: calc(100% - 20px);
+                padding: 15px 20px;
+            }
+        
             .form-row {
                 grid-template-columns: 1fr;
             }
@@ -836,6 +905,34 @@
             }
         }
 
+        function showToast(type, content) {
+            const toast = document.createElement('div');
+            toast.className = `toast-notification ${type}`;
+            
+            const icon = type === 'success' ? 'bx-check-circle' : 'bx-error-circle';
+            
+            toast.innerHTML = `
+                <i class='bx ${icon}'></i>
+                <div class="toast-content">
+                    <div class="toast-title">${content.title}</div>
+                    <div class="toast-message">${content.message}</div>
+                </div>
+            `;
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 4000);
+        }
+
         function updateSummary() {
             const loanTypes = {
                 'personnel': 'Micro-crédit personnel',
@@ -905,27 +1002,35 @@
                 
                 if (result.success) {
                     const messages = {
-                        fr: '✅ Votre demande a bien été envoyée!\n\nVérifiez votre boîte mail pour confirmation.\nNotre équipe vous répondra sous 3 jours ouvrés.',
-                        en: '✅ Your request has been sent successfully!\n\nCheck your mailbox for confirmation.\nOur team will respond within 3 business days.',
-                        es: '✅ ¡Su solicitud ha sido enviada con éxito!\n\nRevise su buzón para confirmación.\nNuestro equipo responderá en 3 días hábiles.',
-                        de: '✅ Ihre Anfrage wurde erfolgreich gesendet!\n\nÜberprüfen Sie Ihr Postfach zur Bestätigung.\nUnser Team wird innerhalb von 3 Werktagen antworten.',
-                        it: '✅ La tua richiesta è stata inviata con successo!\n\nControlla la tua casella di posta per conferma.\nIl nostro team risponderà entro 3 giorni lavorativi.'
+                        fr: { title: 'Demande envoyée !', message: 'Vérifiez votre boîte mail. Notre équipe répondra sous 3 jours ouvrés.' },
+                        en: { title: 'Request sent!', message: 'Check your mailbox. Our team will respond within 3 business days.' },
+                        es: { title: '¡Solicitud enviada!', message: 'Revise su buzón. Nuestro equipo responderá en 3 días hábiles.' },
+                        de: { title: 'Anfrage gesendet!', message: 'Überprüfen Sie Ihr Postfach. Unser Team antwortet innerhalb von 3 Werktagen.' },
+                        it: { title: 'Richiesta inviata!', message: 'Controlla la tua casella. Il nostro team risponderà entro 3 giorni lavorativi.' },
+                        et: { title: 'Taotlus saadetud!', message: 'Kontrollige oma postkasti. Meie meeskond vastab 3 tööpäeva jooksul.' },
+                        lt: { title: 'Užklausa išsiųsta!', message: 'Patikrinkite savo pašto dėžutę. Mūsų komanda atsakys per 3 darbo dienas.' },
+                        sk: { title: 'Žiadosť odoslaná!', message: 'Skontrolujte si poštovú schránku. Náš tím odpovie do 3 pracovných dní.' },
+                        nl: { title: 'Aanvraag verzonden!', message: 'Controleer uw mailbox. Ons team reageert binnen 3 werkdagen.' }
                     };
-                    alert(messages[currentLang] || messages['fr']);
-                    location.reload();
+                    showToast('success', messages[currentLang] || messages['fr']);
+                    setTimeout(() => location.reload(), 3000);
                 } else {
                     throw new Error(result.message || 'Erreur lors de l\'envoi');
                 }
             } catch (error) {
                 console.error('Error:', error);
                 const errorMessages = {
-                    fr: '❌ Erreur lors de l\'envoi de l\'email.\nVotre demande a été enregistrée mais l\'email de confirmation n\'a pas pu être envoyé.\n\nVeuillez vérifier votre adresse email ou réessayer plus tard.',
-                    en: '❌ Error sending email.\nYour request has been recorded but the confirmation email could not be sent.\n\nPlease check your email address or try again later.',
-                    es: '❌ Error al enviar el correo.\nSu solicitud ha sido registrada pero el correo de confirmación no pudo ser enviado.\n\nPor favor verifique su dirección de correo o intente más tarde.',
-                    de: '❌ Fehler beim Senden der E-Mail.\nIhre Anfrage wurde aufgezeichnet, aber die Bestätigungs-E-Mail konnte nicht gesendet werden.\n\nBitte überprüfen Sie Ihre E-Mail-Adresse oder versuchen Sie es später erneut.',
-                    it: '❌ Errore durante l\'invio dell\'email.\nLa tua richiesta è stata registrata ma l\'email di conferma non è stata inviata.\n\nControlla il tuo indirizzo email o riprova più tardi.'
+                    fr: { title: 'Erreur d\'envoi', message: 'L\'email de confirmation n\'a pas pu être envoyé. Veuillez réessayer.' },
+                    en: { title: 'Sending error', message: 'The confirmation email could not be sent. Please try again.' },
+                    es: { title: 'Error de envío', message: 'No se pudo enviar el correo de confirmación. Inténtelo de nuevo.' },
+                    de: { title: 'Sendefehler', message: 'Die Bestätigungs-E-Mail konnte nicht gesendet werden. Bitte versuchen Sie es erneut.' },
+                    it: { title: 'Errore di invio', message: 'L\'email di conferma non è stata inviata. Riprova.' },
+                    et: { title: 'Saatmise viga', message: 'Kinnituskirja ei saanud saata. Palun proovige uuesti.' },
+                    lt: { title: 'Siuntimo klaida', message: 'Patvirtinimo el. laiško nepavyko išsiųsti. Bandykite dar kartą.' },
+                    sk: { title: 'Chyba odoslania', message: 'Potvrdzovací e-mail sa nepodarilo odoslať. Skúste znova.' },
+                    nl: { title: 'Verzendfout', message: 'De bevestigingsmail kon niet worden verzonden. Probeer het opnieuw.' }
                 };
-                alert(errorMessages[currentLang] || errorMessages['fr']);
+                showToast('error', errorMessages[currentLang] || errorMessages['fr']);
                 submitButton.disabled = false;
                 submitButton.textContent = originalText;
             }
