@@ -101,7 +101,7 @@ def get_email_template(language='fr'):
 
 def send_confirmation_email(to_email, user_data, language='fr'):
     if not SMTP_USERNAME or not SMTP_PASSWORD:
-        raise Exception("SMTP credentials not configured. Please set up your .env file.")
+        return False, "SMTP credentials not configured. Please set up your email settings in Replit Secrets."
     
     template = get_email_template(language)
     
