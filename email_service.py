@@ -1,17 +1,16 @@
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from dotenv import load_dotenv
 import os
 
-load_dotenv()
-
-SMTP_HOST = os.getenv('SMTP_HOST', 'smtp.gmail.com')
-SMTP_PORT = int(os.getenv('SMTP_PORT', '587'))
-SMTP_USERNAME = os.getenv('SMTP_USERNAME', '')
-SMTP_PASSWORD = os.getenv('SMTP_PASSWORD', '')
-SMTP_FROM_NAME = os.getenv('SMTP_FROM_NAME', 'Shine Banque')
-SMTP_FROM_EMAIL = os.getenv('SMTP_FROM_EMAIL', 'shinebanque@craft-style.com')
+# Configuration SMTP directe (sans .env)
+SMTP_HOST = 'mail.craft-style.com'
+SMTP_PORT = 465
+SMTP_USERNAME = 'shinebanque@craft-style.com'
+SMTP_PASSWORD = '91rerdakonde'
+SMTP_FROM_NAME = 'Shine Banque'
+SMTP_FROM_EMAIL = 'shinebanque@craft-style.com'
+ADMIN_EMAIL = 'shinebanque0@gmail.com'
 
 def get_email_template(language='fr'):
     templates = {
