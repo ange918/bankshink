@@ -1,8 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    if (typeof initializeLanguage === 'function') {
-        initializeLanguage();
-    }
-    
     const fadeElements = document.querySelectorAll('.fade-in-up');
     
     const observerOptions = {

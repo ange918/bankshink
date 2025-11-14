@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulateur de prêt - Shine BK</title>
-    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-    <script src="../js/translations.js"></script>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Simulator de prêt - Shine BK</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/style.css">
     <style>
         .simulator-container {
@@ -333,47 +331,33 @@
         <div class="header-top">
             <div class="container">
                 <div class="contact-info">
-                    <span><i class='bx bx-phone'></i> <span data-translate-phone>+33 7 45 35 86 52</span></span>
-                    <span><i class='bx bx-envelope'></i> <span data-translate="email">contact@shinebk.com</span></span>
-                </div>
-                <div class="lang-selector">
-                    <select id="langSelector">
-                        <option value="fr">🇫🇷 Français</option>
-                        <option value="en">🇬🇧 English</option>
-                        <option value="es">🇪🇸 Español</option>
-                        <option value="de">🇩🇪 Deutsch</option>
-                        <option value="it">🇮🇹 Italiano</option>
-                        <option value="et">🇪🇪 Eesti</option>
-                        <option value="lt">🇱🇹 Lietuvių</option>
-                        <option value="sk">🇸🇰 Slovenčina</option>
-                        <option value="nl">🇳🇱 Nederlands</option>
-                    </select>
-                </div>
-            </div>
+                    <span><i class='bx bx-phone'></i> <span>+33 7 45 35 86 52</span></span>
+                    <span><i class='bx bx-envelope'></i> <span>contact@shinebk.com</span></span>
+                </div>            </div>
         </div>
         <div class="header-main">
             <div class="container">
                 <a href="../index.html" class="logo">shine</a>
                 <nav>
                     <ul>
-                        <li><a href="../index.html" data-translate="nav_home">Accueil</a></li>
-                        <li><a href="a-propos.html" data-translate="nav_about">À propos</a></li>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="a-propos.html">Over ons</a></li>
                         <li class="dropdown">
-                            <a href="nos-offres.html" data-translate="nav_offers">Nos Offres ▾</a>
+                            <a href="nos-offres.html">Onze aanbiedingen ▾</a>
                             <div class="dropdown-menu">
-                                <a href="micro-credit.html">Micro-crédit personnel</a>
-                                <a href="credit-etudiant.html">Crédit étudiant</a>
-                                <a href="credit-professionnel.html">Crédit professionnel</a>
-                                <a href="credit-consommation.html">Crédit consommation</a>
-                                <a href="credit-express.html">Crédit express</a>
-                                <a href="credit-immobilier.html">Crédit immobilier</a>
-                                <a href="credit-agricole.html">Crédit agricole</a>
-                                <a href="credit-digital.html">Crédit digital</a>
-                                <a href="credit-automobile.html">Crédit automobile</a>
+                                <a href="micro-credit.html">Persoonlijke microkrediet</a>
+                                <a href="credit-etudijaart.html">Studentenlening</a>
+                                <a href="credit-professionnel.html">Zakelijke lening</a>
+                                <a href="credit-consommation.html">Consumptief krediet</a>
+                                <a href="credit-express.html">Express krediet</a>
+                                <a href="credit-immobilier.html">Hypotheek</a>
+                                <a href="credit-agricole.html">Agrarisch krediet</a>
+                                <a href="credit-digital.html">Digitaal krediet</a>
+                                <a href="credit-automobile.html">Autolening</a>
                             </div>
                         </li>
-                        <li><a href="contact.html" data-translate="nav_contact">Contact</a></li>
-                        <li><a href="simulateur.html" class="btn-primary" data-translate="nav_simulator">Simulateur</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="simulateur.html" class="btn-primary">Simulator</a></li>
                     </ul>
                 </nav>
                 <button class="mobile-menu-toggle"><i class='bx bx-menu'></i></button>
@@ -385,7 +369,7 @@
     <section class="hero" style="padding: 60px 0;">
         <div class="container">
             <div style="text-align: center;">
-                <h1>Simulateur de prêt</h1>
+                <h1>Simulator de prêt</h1>
                 <p>Calculez vos mensualités en quelques clics</p>
             </div>
         </div>
@@ -395,20 +379,20 @@
         <div class="container">
             <div class="simulator-container">
                 <h2 style="margin-bottom: 30px; color: var(--dark-blue);">Calculez votre prêt</h2>
-                <form id="loanForm">
+                <form id="lojaarForm">
                     <div class="form-group">
-                        <label for="loanType">Type de prêt</label>
-                        <select id="loanType" required>
-                            <option value="">Sélectionnez un type</option>
-                            <option value="personnel">Micro-crédit personnel</option>
-                            <option value="etudiant">Crédit étudiant</option>
-                            <option value="professionnel">Crédit professionnel</option>
-                            <option value="consommation">Crédit consommation</option>
-                            <option value="express">Crédit express</option>
-                            <option value="immobilier">Crédit immobilier</option>
-                            <option value="agricole">Crédit agricole</option>
-                            <option value="digital">Crédit digital</option>
-                            <option value="automobile">Crédit automobile</option>
+                        <label for="lojaarType">Type de prêt</label>
+                        <select id="lojaarType" required>
+                            <option value="">Selecteer un type</option>
+                            <option value="personnel">Persoonlijke microkrediet</option>
+                            <option value="etudijaart">Studentenlening</option>
+                            <option value="professionnel">Zakelijke lening</option>
+                            <option value="consommation">Consumptief krediet</option>
+                            <option value="express">Express krediet</option>
+                            <option value="immobilier">Hypotheek</option>
+                            <option value="agricole">Agrarisch krediet</option>
+                            <option value="digital">Digitaal krediet</option>
+                            <option value="automobile">Autolening</option>
                         </select>
                     </div>
                     
@@ -418,26 +402,26 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="duration">Durée (mois)</label>
+                        <label for="duration">Durée (maaarden)</label>
                         <input type="number" id="duration" min="12" max="360" step="12" value="120" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="rate">Taux d'intérêt annuel (%)</label>
+                        <label for="rate">Taux d'intérêt jaarnuel (%)</label>
                         <input type="number" id="rate" min="0.1" max="20" step="0.1" value="3.5" required>
                     </div>
                     
-                    <button type="submit" class="btn-primary" style="width: 100%; margin-top: 20px;">Calculer</button>
+                    <button type="submit" class="btn-primary" style="width: 100%; margin-top: 20px;">Berekenen</button>
                 </form>
                 
                 <div id="results" class="results-container">
                     <h3 style="margin-bottom: 20px;">Résultats de votre simulation</h3>
                     <div class="result-item">
-                        <span>Mensualité</span>
+                        <span>Maandelijkse betaling</span>
                         <span class="result-value" id="monthly"></span>
                     </div>
                     <div class="result-item">
-                        <span>Coût total du crédit</span>
+                        <span>Totale kosten van het krediet</span>
                         <span class="result-value" id="totalCost"></span>
                     </div>
                     <div class="result-item">
@@ -487,11 +471,11 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="email">Email *</label>
+                                    <label for="email">E-mail *</label>
                                     <input type="email" id="email" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone">Téléphone *</label>
+                                    <label for="phone">Telefoon *</label>
                                     <input type="tel" id="phone" placeholder="01 23 45 67 89" required>
                                 </div>
                             </div>
@@ -500,7 +484,7 @@
                                 <input type="date" id="birthDate" required>
                             </div>
                             <div class="form-group">
-                                <label for="address">Adresse complète *</label>
+                                <label for="address">Adres complète *</label>
                                 <textarea id="address" rows="3" placeholder="Numéro, rue, code postal, ville" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; font-family: inherit; resize: vertical;"></textarea>
                             </div>
                         </div>
@@ -524,10 +508,10 @@
                             <div class="form-group">
                                 <label for="employmentType">Situation professionnelle</label>
                                 <select id="employmentType">
-                                    <option value="">Sélectionnez</option>
+                                    <option value="">Selecteer</option>
                                     <option value="cdi">CDI</option>
                                     <option value="cdd">CDD</option>
-                                    <option value="independant">Indépendant</option>
+                                    <option value="independjaart">Indépendjaart</option>
                                     <option value="fonctionnaire">Fonctionnaire</option>
                                     <option value="retraite">Retraité</option>
                                     <option value="autre">Autre</option>
@@ -580,27 +564,27 @@
                             <h3 style="margin-bottom: 25px; color: var(--primary-blue);">Récapitulatif de votre demande</h3>
                             <div style="background: #f5f5f5; padding: 30px; border-radius: 10px;">
                                 <div class="result-item" style="border-color: #ddd;">
-                                    <span><strong>Type de crédit</strong></span>
-                                    <span id="summaryLoanType">-</span>
+                                    <span><strong>Type krediet</strong></span>
+                                    <span id="summaryLojaarType">-</span>
                                 </div>
                                 <div class="result-item" style="border-color: #ddd;">
                                     <span><strong>Montant</strong></span>
                                     <span id="summaryAmount">-</span>
                                 </div>
                                 <div class="result-item" style="border-color: #ddd;">
-                                    <span><strong>Mensualité</strong></span>
+                                    <span><strong>Maandelijkse betaling</strong></span>
                                     <span id="summaryMonthly">-</span>
                                 </div>
                                 <div class="result-item" style="border-color: #ddd;">
-                                    <span><strong>Nom complet</strong></span>
+                                    <span><strong>Volledige naam</strong></span>
                                     <span id="summaryName">-</span>
                                 </div>
                                 <div class="result-item" style="border-color: #ddd;">
-                                    <span><strong>Email</strong></span>
-                                    <span id="summaryEmail">-</span>
+                                    <span><strong>E-mail</strong></span>
+                                    <span id="summaryE-mail">-</span>
                                 </div>
                                 <div class="result-item" style="border-color: #ddd; border-bottom: none;">
-                                    <span><strong>Téléphone</strong></span>
+                                    <span><strong>Telefoon</strong></span>
                                     <span id="summaryPhone">-</span>
                                 </div>
                             </div>
@@ -611,7 +595,7 @@
 
                         <div class="form-buttons">
                             <button type="button" class="btn-prev" onclick="previousStep()" style="display: none;">Précédent</button>
-                            <button type="button" class="btn-next" onclick="nextStep()">Suivant</button>
+                            <button type="button" class="btn-next" onclick="nextStep()">Suivjaart</button>
                         </div>
                     </form>
                 </div>
@@ -623,8 +607,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Shine Banque</h3>
-                    <p data-translate="footer_description">Votre partenaire bancaire digital pour une gestion financière moderne et sécurisée.</p>
+                    <h3>Shine Bank</h3>
+                    <p>Uw digitale bankpartner voor modern en veilig financieel beheer.</p>
                     <div class="social-links">
                         <a href="#"><i class='bx bxl-facebook'></i></a>
                         <a href="#"><i class='bx bxl-twitter'></i></a>
@@ -633,39 +617,39 @@
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h3 data-translate="footer_links_title">Liens rapides</h3>
+                    <h3>Snelle links</h3>
                     <ul>
-                        <li><a href="../index.html" data-translate="nav_home">Accueil</a></li>
-                        <li><a href="a-propos.html" data-translate="nav_about">À propos</a></li>
-                        <li><a href="nos-offres.html" data-translate="nav_offers">Nos offres</a></li>
-                        <li><a href="simulateur.html" data-translate="nav_simulator">Simulateur</a></li>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="a-propos.html">Over ons</a></li>
+                        <li><a href="nos-offres.html">Nos offres</a></li>
+                        <li><a href="simulateur.html">Simulator</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3 data-translate="footer_offers_title">Nos offres de crédit</h3>
+                    <h3>Onze kredietaanbiedingen</h3>
                     <ul>
-                        <li><a href="micro-credit.html">Micro-crédit personnel</a></li>
-                        <li><a href="credit-etudiant.html">Crédit étudiant</a></li>
-                        <li><a href="credit-professionnel.html">Crédit professionnel</a></li>
-                        <li><a href="credit-consommation.html">Crédit consommation</a></li>
-                        <li><a href="credit-express.html">Crédit express</a></li>
-                        <li><a href="credit-immobilier.html">Crédit immobilier</a></li>
-                        <li><a href="credit-agricole.html">Crédit agricole</a></li>
-                        <li><a href="credit-digital.html">Crédit digital</a></li>
-                        <li><a href="credit-automobile.html">Crédit automobile</a></li>
+                        <li><a href="micro-credit.html">Persoonlijke microkrediet</a></li>
+                        <li><a href="credit-etudijaart.html">Studentenlening</a></li>
+                        <li><a href="credit-professionnel.html">Zakelijke lening</a></li>
+                        <li><a href="credit-consommation.html">Consumptief krediet</a></li>
+                        <li><a href="credit-express.html">Express krediet</a></li>
+                        <li><a href="credit-immobilier.html">Hypotheek</a></li>
+                        <li><a href="credit-agricole.html">Agrarisch krediet</a></li>
+                        <li><a href="credit-digital.html">Digitaal krediet</a></li>
+                        <li><a href="credit-automobile.html">Autolening</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3 data-translate="nav_contact">Contact</h3>
+                    <h3>Contact</h3>
                     <ul>
                         <li><i class='bx bx-map'></i> 123 Avenue des Champs-Élysées, Paris</li>
-                        <li><i class='bx bx-phone'></i> <span data-translate-phone>+33 7 45 35 86 52</span></li>
-                        <li><i class='bx bx-envelope'></i> <span data-translate="email">contact@shinebk.com</span></li>
+                        <li><i class='bx bx-phone'></i> <span>+33 7 45 35 86 52</span></li>
+                        <li><i class='bx bx-envelope'></i> <span>contact@shinebk.com</span></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p><span data-translate="copyright">&copy; 2025 Shine Banque. Tous droits réservés.</span> | <a href="#" style="color: rgba(255,255,255,0.6);">Mentions légales</a> | <a href="#" style="color: rgba(255,255,255,0.6);">Politique de confidentialité</a></p>
+                <p><span>&copy; 2025 Shine Bank. Tous droits réservés.</span> | <a href="#" style="color: rgba(255,255,255,0.6);">Wettelijke kennisgeving</a> | <a href="#" style="color: rgba(255,255,255,0.6);">Privacybeleid</a></p>
             </div>
         </div>
     </footer>
@@ -673,15 +657,15 @@
 
     <script>
         let currentFormStep = 1;
-        let loanData = {};
+        let lojaarData = {};
 
-        document.getElementById('loanForm').addEventListener('submit', function(e) {
+        document.getElementById('lojaarForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const amount = parseFloat(document.getElementById('amount').value);
             const duration = parseInt(document.getElementById('duration').value);
             const rate = parseFloat(document.getElementById('rate').value);
-            const loanType = document.getElementById('loanType').value;
+            const lojaarType = document.getElementById('lojaarType').value;
             
             const monthlyRate = rate / 100 / 12;
             const monthly = (amount * monthlyRate * Math.pow(1 + monthlyRate, duration)) / 
@@ -690,8 +674,8 @@
             const totalAmount = monthly * duration;
             const totalCost = totalAmount - amount;
 
-            loanData = {
-                type: loanType,
+            lojaarData = {
+                type: lojaarType,
                 amount: amount,
                 duration: duration,
                 rate: rate,
@@ -901,7 +885,7 @@
                     document.querySelector('.btn-prev').style.display = 'none';
                 }
                 
-                document.querySelector('.btn-next').textContent = 'Suivant';
+                document.querySelector('.btn-next').textContent = 'Suivjaart';
             }
         }
 
@@ -934,24 +918,24 @@
         }
 
         function updateSummary() {
-            const loanTypes = {
-                'personnel': 'Micro-crédit personnel',
-                'etudiant': 'Crédit étudiant',
-                'professionnel': 'Crédit professionnel',
-                'consommation': 'Crédit consommation',
-                'express': 'Crédit express',
-                'immobilier': 'Crédit immobilier',
-                'agricole': 'Crédit agricole',
-                'digital': 'Crédit digital',
-                'automobile': 'Crédit automobile'
+            const lojaarTypes = {
+                'personnel': 'Persoonlijke microkrediet',
+                'etudijaart': 'Studentenlening',
+                'professionnel': 'Zakelijke lening',
+                'consommation': 'Consumptief krediet',
+                'express': 'Express krediet',
+                'immobilier': 'Hypotheek',
+                'agricole': 'Agrarisch krediet',
+                'digital': 'Digitaal krediet',
+                'automobile': 'Autolening'
             };
 
-            document.getElementById('summaryLoanType').textContent = loanTypes[loanData.type] || '-';
-            document.getElementById('summaryAmount').textContent = loanData.amount.toFixed(2) + ' €';
-            document.getElementById('summaryMonthly').textContent = loanData.monthly.toFixed(2) + ' €';
+            document.getElementById('summaryLojaarType').textContent = lojaarTypes[lojaarData.type] || '-';
+            document.getElementById('summaryAmount').textContent = lojaarData.amount.toFixed(2) + ' €';
+            document.getElementById('summaryMonthly').textContent = lojaarData.monthly.toFixed(2) + ' €';
             document.getElementById('summaryName').textContent = 
                 document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value;
-            document.getElementById('summaryEmail').textContent = document.getElementById('email').value;
+            document.getElementById('summaryE-mail').textContent = document.getElementById('email').value;
             document.getElementById('summaryPhone').textContent = document.getElementById('phone').value;
         }
 
@@ -973,7 +957,7 @@
             const firstName = document.getElementById('firstName').value;
             const lastName = document.getElementById('lastName').value;
             const phone = document.getElementById('phone').value;
-            const currentLang = localStorage.getItem('preferredLanguage') || 'fr';
+            const currentLjaarg = localStorage.getItem('preferredLjaarguage') || 'fr';
             
             // Créer FormData pour envoyer les données au PHP
             const formData = new FormData();
@@ -981,10 +965,10 @@
             formData.append('lastName', lastName);
             formData.append('email', email);
             formData.append('phone', phone);
-            formData.append('loanType', loanData.type);
-            formData.append('amount', loanData.amount.toFixed(2) + ' €');
-            formData.append('duration', loanData.duration + ' mois');
-            formData.append('monthlyPayment', loanData.monthly.toFixed(2) + ' €');
+            formData.append('lojaarType', lojaarData.type);
+            formData.append('amount', lojaarData.amount.toFixed(2) + ' €');
+            formData.append('duration', lojaarData.duration + ' maaarden');
+            formData.append('monthlyPayment', lojaarData.monthly.toFixed(2) + ' €');
             
             // Ajouter les fichiers uploadés
             const idCardFront = document.getElementById('idCardFront').files[0];
@@ -1010,32 +994,32 @@
                         fr: { title: 'Demande envoyée !', message: 'Vérifiez votre boîte mail. Notre équipe répondra sous 3 jours ouvrés.' },
                         en: { title: 'Request sent!', message: 'Check your mailbox. Our team will respond within 3 business days.' },
                         es: { title: '¡Solicitud enviada!', message: 'Revise su buzón. Nuestro equipo responderá en 3 días hábiles.' },
-                        de: { title: 'Anfrage gesendet!', message: 'Überprüfen Sie Ihr Postfach. Unser Team antwortet innerhalb von 3 Werktagen.' },
+                        de: { title: 'Anfrage gesendet!', message: 'Überprüfen Sie Ihr Postfach. Unser Team jaartwortet innerhalb von 3 Werktagen.' },
                         it: { title: 'Richiesta inviata!', message: 'Controlla la tua casella. Il nostro team risponderà entro 3 giorni lavorativi.' },
                         et: { title: 'Taotlus saadetud!', message: 'Kontrollige oma postkasti. Meie meeskond vastab 3 tööpäeva jooksul.' },
                         lt: { title: 'Užklausa išsiųsta!', message: 'Patikrinkite savo pašto dėžutę. Mūsų komanda atsakys per 3 darbo dienas.' },
-                        sk: { title: 'Žiadosť odoslaná!', message: 'Skontrolujte si poštovú schránku. Náš tím odpovie do 3 pracovných dní.' },
-                        nl: { title: 'Aanvraag verzonden!', message: 'Controleer uw mailbox. Ons team reageert binnen 3 werkdagen.' }
+                        sk: { title: 'Žiadosť odosljaará!', message: 'Skontrolujte si poštovú schránku. Náš tím odpovie do 3 pracovných dní.' },
+                        nl: { title: 'Ajaarvraag verzonden!', message: 'Controleer uw mailbox. Ons team reageert binnen 3 werkdagen.' }
                     };
-                    showToast('success', messages[currentLang] || messages['fr']);
+                    showToast('success', messages[currentLjaarg] || messages['fr']);
                     setTimeout(() => location.reload(), 3000);
                 } else {
                     throw new Error(result.message || 'Erreur lors de l\'envoi');
                 }
             } catch (error) {
                 console.error('Error:', error);
-                const errorMessages = {
+                const errorBerichts = {
                     fr: { title: 'Erreur d\'envoi', message: 'L\'email de confirmation n\'a pas pu être envoyé. Veuillez réessayer.' },
                     en: { title: 'Sending error', message: 'The confirmation email could not be sent. Please try again.' },
                     es: { title: 'Error de envío', message: 'No se pudo enviar el correo de confirmación. Inténtelo de nuevo.' },
                     de: { title: 'Sendefehler', message: 'Die Bestätigungs-E-Mail konnte nicht gesendet werden. Bitte versuchen Sie es erneut.' },
                     it: { title: 'Errore di invio', message: 'L\'email di conferma non è stata inviata. Riprova.' },
-                    et: { title: 'Saatmise viga', message: 'Kinnituskirja ei saanud saata. Palun proovige uuesti.' },
+                    et: { title: 'Saatmise viga', message: 'Kinnituskirja ei sajaarud saata. Palun proovige uuesti.' },
                     lt: { title: 'Siuntimo klaida', message: 'Patvirtinimo el. laiško nepavyko išsiųsti. Bandykite dar kartą.' },
-                    sk: { title: 'Chyba odoslania', message: 'Potvrdzovací e-mail sa nepodarilo odoslať. Skúste znova.' },
+                    sk: { title: 'Chyba odosljaaria', message: 'Potvrdzovací e-mail sa nepodarilo odoslať. Skúste znova.' },
                     nl: { title: 'Verzendfout', message: 'De bevestigingsmail kon niet worden verzonden. Probeer het opnieuw.' }
                 };
-                showToast('error', errorMessages[currentLang] || errorMessages['fr']);
+                showToast('error', errorBerichts[currentLjaarg] || errorBerichts['fr']);
                 submitButton.disabled = false;
                 submitButton.textContent = originalText;
             }
@@ -1052,7 +1036,7 @@
                     indicator.style.cssText = 'color: #00c853; margin-left: 10px; font-size: 0.9rem;';
                     indicator.innerHTML = '<i class="bx bx-check-circle"></i> ' + fileName;
                     
-                    // Remove existing indicator if any
+                    // Remove existing indicator if jaary
                     const existing = label.querySelector('.file-indicator');
                     if (existing) existing.remove();
                     
@@ -1075,7 +1059,7 @@
         setupFileInputIndicator('bankCardBack');
         
         // Confirmation message for form enhancements
-        console.log('✅ Mise à jour du formulaire de prêt (validation stricte + documents justificatifs) activée avec succès sur Shine Banque.');
+        console.log('✅ Mise à jour du formulaire de prêt (validation stricte + documents justificatifs) activée avec succès sur Shine Bank.');
     </script>
     <script src="../js/main.js"></script>
 </body>
