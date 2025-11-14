@@ -1,0 +1,197 @@
+Tu ne dois rien modifier d’autre sur le site.
+
+Tu dois uniquement corriger le système SMTP et le remettre comme il fonctionnait parfaitement auparavant.
+
+
+
+Je veux que tu supprimes complètement l’utilisation du fichier .env, car mon hébergeur ne charge pas les variables d’environnement.
+
+Tu vas remettre une configuration SMTP directement dans le fichier PHP, exactement comme dans mon ancienne version qui fonctionnait.
+
+
+
+Voici les informations SMTP à utiliser obligatoirement :
+
+• Host : mail.craft-style.com
+
+• Port : 465
+
+• Sécurisation : PHPMailer::ENCRYPTION_SMTPS (SSL)
+
+• Username : shinebanque@craft-style.com
+
+• Password : 91rerdakonde
+
+• Email expéditeur : shinebanque@craft-style.com
+
+• Email admin qui doit recevoir une copie : shinebanque0@gmail.com
+
+
+
+Tu dois intégrer cette configuration directement dans le fichier PHP d’envoi, sans passer par .env, sans passer par les secrets Replit, sans autre fichier intermédiaire.
+
+
+
+Voici le modèle exact que tu dois utiliser (copie ce code tel quel dans le fichier d’envoi) :
+
+
+
+<?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+
+use PHPMailer\PHPMailer\Exception;
+
+
+
+require 'PHPMailer/PHPMailer.php';
+
+require 'PHPMailer/SMTP.php';
+
+require 'PHPMailer/Exception.php';
+
+
+
+$mail = new PHPMailer(true);
+
+
+
+try {
+
+    // configuration serveur SMTP
+
+    $mail->isSMTP();
+
+    $mail->Host       = 'mail.craft-style.com';
+
+    $mail->SMTPAuth   = true;
+
+    $mail->Username   = 'shinebanque@craft-style.com';
+
+    $mail->Password   = '91rerdakonde';
+
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // SSL
+
+    $mail->Port       = 465;
+
+
+
+    // from & reply
+
+    $mail->setFrom('shinebanque@craft-style.com', 'Shine Banque');
+
+    $mail->addReplyTo('shinebanque@craft-style.com', 'Shine Banque');
+
+
+
+    // destinataire client
+
+    $mail->addAddress($emailClient);
+
+
+
+    // destinataire admin
+
+    $mail->addAddress('shinebanque0@gmail.com');
+
+
+
+    // pièce jointe
+
+    if (!empty($_FILES['upload']['tmp_name'])) {
+
+        $mail->addAttachment($_FILES['upload']['tmp_name'], $_FILES['upload']['name']);
+
+    }
+
+
+
+    // contenu email (beau design)
+
+    $mail->isHTML(true);
+
+    $mail->Subject = "Confirmation de votre demande - Shine Banque";
+
+    $mail->Body = "
+
+    <div style='padding:20px; font-family:Arial; background:#f7f7f7;'>
+
+        <div style='max-width:600px; margin:auto; background:white; padding:20px; border-radius:8px;'>
+
+            <h2 style='text-align:center; color:#333;'>Votre demande a bien été reçue ✔️</h2>
+
+            <p style='font-size:15px; color:#555;'>
+
+                Merci d'avoir complété votre demande. Nous allons analyser votre dossier.
+
+            </p>
+
+            <p style='font-size:15px; color:#555;'>
+
+                Vous recevrez une réponse sous 3 jours maximum.
+
+            </p>
+
+            <p style='margin-top:20px; font-size:14px; color:#888; text-align:center;'>
+
+                Shine Banque – Service Client
+
+            </p>
+
+        </div>
+
+    </div>";
+
+
+
+    $mail->send();
+
+    echo "success";
+
+
+
+} catch (Exception $e) {
+
+    echo "Erreur SMTP : " . $mail->ErrorInfo;
+
+}
+
+
+
+🔒 EXIGENCES IMPORTANTES :
+
+1. Ne touche à rien d’autre que le SMTP.
+
+Pas de changement dans le simulateur, CSS, HTML, JS, logique, formulaires, ni design.
+
+2. Supprime toutes les références à .env, dotenv, getenv(), ou tout système externe.
+
+3. Assure-toi que tous les fichiers PHPMailer sont correctement inclus :
+
+• PHPMailer.php
+
+• SMTP.php
+
+• Exception.php
+
+4. Le bouton d’envoi du simulateur doit appeler ce fichier.
+
+Rien d’autre ne doit être modifié.
+
+
+
+Ton objectif est simple :
+
+✔️ faire fonctionner l’envoi d’emails sur mon hébergeur
+
+✔️ avec ma configuration SMTP direct dans le code
+
+✔️ sans .env
+
+✔️ sans variables manquantes
+
+✔️ comme la première version qui marchait parfaitement.
+
+
+
+Commence maintenant
