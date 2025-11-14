@@ -124,3 +124,15 @@
     - ✅ All components operational: navigation, language selector, hero section, CTA buttons
     - ✅ Project fully migrated to Replit environment and ready for development
     - ✅ All migration tasks completed successfully
+
+[x] 14. November 14, 2025 - SMTP Configuration Update for External Hosting:
+    - ✅ Removed all .env and environment variable dependencies from process_form.php
+    - ✅ Hardcoded SMTP configuration directly in PHP file for hosting provider compatibility
+    - ✅ Configured mail.craft-style.com SMTP server with port 465 (SSL/SMTPS)
+    - ✅ Set up dual email system (admin notification + client confirmation)
+    - ✅ Updated simulateur.html to call process_form.php instead of Python endpoint
+    - ✅ Modified JavaScript to use FormData for proper file upload handling
+    - ✅ Included all 4 document uploads (ID card & bank card recto/verso)
+    - ✅ Maintained all form validation and toast notification functionality
+    - ✅ Code ready for deployment to external PHP hosting provider
+    - ✅ All SMTP settings configured as requested (no external dependencies)

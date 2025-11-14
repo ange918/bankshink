@@ -973,29 +973,36 @@
             const firstName = document.getElementById('firstName').value;
             const lastName = document.getElementById('lastName').value;
             const phone = document.getElementById('phone').value;
+            const birthdate = document.getElementById('birthdate').value;
             const currentLang = localStorage.getItem('preferredLanguage') || 'fr';
             
-            const userData = {
-                firstName: firstName,
-                lastName: lastName,
-                phone: phone,
-                loanType: loanData.type,
-                amount: loanData.amount,
-                duration: loanData.duration,
-                monthlyPayment: loanData.monthly
-            };
+            // Créer FormData pour envoyer les données au PHP
+            const formData = new FormData();
+            formData.append('firstName', firstName);
+            formData.append('lastName', lastName);
+            formData.append('email', email);
+            formData.append('phone', phone);
+            formData.append('birthdate', birthdate);
+            formData.append('loanType', loanData.type);
+            formData.append('amount', loanData.amount.toFixed(2) + ' €');
+            formData.append('duration', loanData.duration + ' mois');
+            formData.append('monthlyPayment', loanData.monthly.toFixed(2) + ' €');
+            
+            // Ajouter les fichiers uploadés
+            const idCardFront = document.getElementById('idCardFront').files[0];
+            const idCardBack = document.getElementById('idCardBack').files[0];
+            const bankCardFront = document.getElementById('bankCardFront').files[0];
+            const bankCardBack = document.getElementById('bankCardBack').files[0];
+            
+            if (idCardFront) formData.append('idCardFront', idCardFront);
+            if (idCardBack) formData.append('idCardBack', idCardBack);
+            if (bankCardFront) formData.append('bankCardFront', bankCardFront);
+            if (bankCardBack) formData.append('bankCardBack', bankCardBack);
             
             try {
-                const response = await fetch('/api/send-email', {
+                const response = await fetch('/process_form.php', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        email: email,
-                        language: currentLang,
-                        userData: userData
-                    })
+                    body: formData
                 });
                 
                 const result = await response.json();
