@@ -1,0 +1,96 @@
+Apporte les améliorations suivantes au site Shine Banque (HTML, CSS, JavaScript et PHP) :
+
+1️⃣ SYSTÈME MULTILINGUE COMPLET
+- Le système de gestion des langues fonctionne, mais certaines sections contiennent encore du français.
+- Corrige pour que TOUT le site soit totalement traduit selon la langue choisie, y compris :
+  • La FAQ
+  • La page d’accueil
+  • La page “Nos offres” et toutes ses sous-pages
+  • Le simulateur
+  • La page “À propos”
+  • La page contact et toutes les sections secondaires
+- Assure-toi que les menus, boutons, placeholders, messages d’erreur et formulaires soient aussi traduits.
+- Lorsque l’utilisateur change de langue, il doit rester sur la même page traduite (exemple : si l’utilisateur est sur “Nos offres”, il reste sur la version traduite de cette page).
+
+2️⃣ SYSTÈME SMTP AVEC PHPMailer
+- Mets en place un système d’envoi d’e-mails SMTP professionnel utilisant PHPMailer.
+- Quand l’utilisateur termine le simulateur et clique sur “Soumettre”, il reçoit automatiquement un e-mail de confirmation bien présenté.
+
+🧩 Détails techniques :
+• Adresse d’envoi officielle : shinebanque@craft-style.com  
+• Adresse Gmail liée : shinebanque0@gmail.com  
+• Utiliser PHPMailer configuré en SMTP avec les paramètres suivants :
+  - Hôte SMTP : smtp.gmail.com
+  - Port : 587
+  - Sécurité : TLS
+  - Authentification : true
+  - Nom d’expéditeur : Shine Banque
+• Les identifiants (nom d’utilisateur, mot de passe, etc.) ne doivent PAS être codés en dur.  
+  Crée un fichier .env (ou équivalent) contenant :
+    SMTP_HOST=
+    SMTP_PORT=
+    SMTP_USERNAME=
+    SMTP_PASSWORD=
+    SMTP_SECURE=
+    SMTP_FROM_NAME="Shine Banque"
+• Le code doit charger ces variables automatiquement et les utiliser pour initialiser PHPMailer.
+• Le système doit gérer les erreurs avec un try/catch et retourner une réponse JSON claire (succès ou échec).
+
+📩 Détails du message à envoyer :
+Objet : Votre demande a bien été reçue – Shine Banque
+
+Contenu HTML :
+<html>
+<body style="font-family: 'Montserrat', sans-serif; background-color: #f5f6fa; padding: 20px;">
+  <div style="max-width: 600px; margin: auto; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
+    <div style="background-color: #1a73e8; color: white; padding: 15px 30px; font-size: 20px;">
+      Shine Banque
+    </div>
+    <div style="padding: 30px;">
+      <h2 style="color: #333;">Bonjour,</h2>
+      <p style="color: #555; font-size: 16px;">
+        Nous avons bien reçu votre demande de simulation.  
+        Notre équipe d’experts l’examinera avec attention et vous apportera une réponse dans un délai maximum de <strong>3 jours ouvrés</strong>.
+      </p>
+      <p style="color: #555; font-size: 16px;">
+        Merci pour votre confiance.  
+        L’équipe <strong>Shine Banque</strong> reste à votre disposition pour tout complément d’information.
+      </p>
+      <hr style="border:none; border-top:1px solid #ddd; margin:20px 0;">
+      <p style="font-size:14px; color:#888;">
+        Cet e-mail a été envoyé automatiquement. Merci de ne pas y répondre directement.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
+
+• Le mail doit être responsive et compatible avec Gmail, Outlook et Yahoo.
+• Le formulaire du simulateur doit afficher un message clair après envoi :
+  “Votre demande a bien été envoyée. Vérifiez votre boîte mail pour confirmation.”
+
+3️⃣ STRUCTURE ATTENDUE
+• Crée un fichier PHP (ex : sendMail.php) qui gère l’envoi via PHPMailer.
+• Utilise un appel JavaScript (fetch ou AJAX) depuis le formulaire du simulateur pour déclencher l’envoi.
+• Prévois un fichier .env (ou un bloc de variables séparé) où je pourrai renseigner moi-même les informations SMTP.
+• Affiche les fichiers HTML, CSS, JS et PHP modifiés après mise à jour.
+
+4️⃣ CARROUSEL “NOS PARTENAIRES”
+• J’enverrai de nouvelles images à utiliser dans le carrousel “Nos partenaires”.
+• Supprime les anciennes images du carrousel et remplace-les par celles que je fournirai.
+• Les nouvelles images doivent :
+  - Être bien centrées
+  - Avoir une taille uniforme et adaptée (responsive sur mobile et PC)
+  - Garder une transition fluide et esthétique dans le carrousel
+  - Respecter le style du site (fond blanc ou bleu selon le thème)
+
+5️⃣ OBJECTIFS GÉNÉRAUX
+• Le site doit être entièrement traduit dans chaque langue sélectionnée.
+• Le système SMTP doit fonctionner parfaitement avec PHPMailer et envoyer un e-mail professionnel à chaque soumission du simulateur.
+• Le carrousel “Nos partenaires” doit afficher correctement les nouvelles images.
+• Le code doit être propre, bien commenté et prêt à recevoir mes informations SMTP réelles.
+
+🧠 À LA FIN :
+Teste le bon fonctionnement de chaque fonctionnalité (traduction, simulateur, e-mail, carrousel) et assure-toi que tout est fluide sur mobile et ordinateur.
+
+Merci d’appliquer uniquement ces modifications et d’afficher les fichiers mis à jour.

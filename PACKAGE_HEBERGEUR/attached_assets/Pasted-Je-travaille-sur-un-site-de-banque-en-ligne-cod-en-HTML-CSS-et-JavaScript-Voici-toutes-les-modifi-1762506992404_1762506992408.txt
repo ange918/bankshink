@@ -1,0 +1,42 @@
+Je travaille sur un site de banque en ligne codé en HTML, CSS et JavaScript. Voici toutes les modifications à effectuer :
+
+1. Couleurs principales :
+
+   - Garder le bleu et le blanc comme couleurs dominantes du site.
+
+2. Bouton “En savoir plus” (section héro)
+
+   - Actuellement, le texte et le fond sont bleus avec un fond transparent, ce qui rend le texte illisible.
+   - Mettre un fond blanc pour le bouton et le texte en bleu (ou inversement si plus esthétique).
+   - S’assurer que le contraste soit bien visible sur tous les appareils.
+
+3. Système de gestion des langues :
+
+   - Actuellement, le texte est blanc sur fond blanc, ce qui le rend illisible.
+   - Corriger en mettant un texte coloré (bleu) sur fond blanc, bien lisible.
+   - Ajouter les drapeaux correspondants à chaque langue pour faciliter le repérage visuel.
+   - Lorsqu’un utilisateur choisit une langue, le contenu du site doit automatiquement s’afficher dans cette langue.
+   - Ajouter les langues suivantes en plus de celles déjà disponibles :
+      - Estonien (Estonie 🇪🇪)
+      - Lituanien (Lituanie 🇱🇹)
+      - Slovaque (Slovaquie 🇸🇰)
+      - Néerlandais (🇳🇱)
+   - S’assurer que la structure JavaScript gère correctement ces nouvelles langues et que la traduction du contenu est bien reliée (via fichiers JSON, objets JS, ou autre système existant).
+
+4. Images dans les sous-menus du bouton “Nos offres” :
+
+   - Les images sont trop grandes et mal centrées.
+   - Corriger leur taille et leur positionnement.
+   - Vérifier toutes les pages du site pour harmoniser la taille et le centrage des images.
+
+5. Section “À propos” (page d’accueil) :
+
+   - Remplacer l’image actuelle par une image représentant une famille heureuse (cohérente avec l’image d’une banque).
+   - Supprimer le bouton “S’inscrire d’abord”.
+
+6. Icônes Boxicons :
+
+   - Certaines pages n’utilisent pas les icônes officielles.
+   - Vérifier et corriger pour que toutes les pages utilisent les vrais Boxicons issus de la bibliothèque officielle.
+
+Appliquer toutes ces corrections dans le code HTML, CSS et JavaScript, en veillant à garder un design harmonieux et professionnel.

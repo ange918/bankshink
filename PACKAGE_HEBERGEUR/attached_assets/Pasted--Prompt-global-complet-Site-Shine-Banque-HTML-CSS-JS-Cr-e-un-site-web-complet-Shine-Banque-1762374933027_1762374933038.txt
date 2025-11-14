@@ -1,0 +1,67 @@
+🧠 Prompt global complet – Site Shine Banque (HTML/CSS/JS)
+🎯 Crée un site web complet Shine Banque, plateforme de prêt en ligne, en HTML, CSS et JavaScript pur, responsive et moderne.
+Couleurs principales : bleu (#0044cc), blanc (#ffffff), doré (#f5b700).
+Typographie : Rocaleta pour les titres, Montserrat pour les textes.
+Animations légères : hover sur cards et boutons, fade-in au scroll.
+1️⃣ Page d’accueil
+Header
+Logo Shine Banque
+Menu : Accueil | À propos | Nos Offres | Contact
+Sous-menu Nos Offres (2 lignes, 3 éléments par ligne) : Micro-crédit personnel, Crédit étudiant, Crédit professionnel, Crédit consommation, Crédit express, Crédit immobilier, Crédit agricole, Crédit digital, Crédit automobile
+Bouton Simulateur
+Sélecteur de langue (Français, Anglais, Espagnol, Allemand, Italien)
+Sections :
+Héro : image de fond, grand titre “SHINE BANQUE”, sous-texte “La solution rapide et fiable pour tous vos besoins de crédit”, boutons : “En savoir plus” et “Simuler mon crédit”
+À propos (intro) : texte court sur mission et vision, bouton “Découvrir nos valeurs”
+Bande roulante partenaires : logos défilants horizontalement
+Nos engagements : 6 éléments avec icône, titre et description (Éligibilité, Confidentialité, Remboursement, Responsabilité, Suivi, Engagement)
+Nos offres : 9 cards animées (3 par ligne), image, titre, description, bouton “En savoir plus” → pages individuelles
+Bilan d’activité : statistiques animées (prêts accordés, satisfaction, clients actifs, années d’expérience)
+Commentaires & Témoignages : slider avec avis clients + image Trustpilot
+FAQ : accordéon interactif
+Footer : liens rapides, réseaux sociaux, mentions légales
+2️⃣ Page À propos
+Sections :
+Héro avec image de fond, titre “À propos”
+Historique détaillé : mission, vision, valeurs, chiffres clés
+Notre équipe : Directeur Général, Directeur Exécutif, Directeur Financier (photo, nom, fonction, courte bio)
+3️⃣ Page Nos Offres
+Fonctionnement :
+Survol du menu “Nos Offres” → affichage sous-menu des 9 types de prêts
+Clic sur un type → page individuelle correspondante
+Présentation :
+Grille des 9 cards animées, image, titre, description longue, bouton “Faire une demande”
+4️⃣ Pages individuelles des prêts (9 pages)
+Pour chaque prêt :
+Héro : image + titre du prêt
+Description complète : définition, taux, durée, conditions, documents requis, avantages
+Bouton “Simuler maintenant”
+5️⃣ Page Contact
+Sections :
+Héro : image de fond, titre “Contactez-nous”, sous-texte
+Formulaire de contact : Nom, Email, Téléphone, Sujet, Message, bouton “Envoyer” avec validation
+Informations de contact : adresse, email, téléphone, réseaux sociaux
+Carte interactive : map intégrée avec zoom et déplacement
+Footer : identique aux autres pages
+6️⃣ Page Simulation de prêt
+Sections :
+Héro : image de fond, titre “Simulateur de prêt”, sous-texte
+Formulaire interactif :
+Type de prêt (9 types)
+Montant
+Durée
+Taux d’intérêt
+Bouton Calculer
+Affichage dynamique des mensualités, taux total, durée
+Bouton Faire une demande pour rediriger vers formulaire
+Conseils et informations : explications sur le prêt choisi
+Footer : identique aux autres pages
+7️⃣ Détails techniques et design
+Site responsive : PC, tablette, mobile
+Animations légères : hover sur boutons et cards, fade-in au scroll
+Couleurs : bleu (#0044cc), blanc (#ffffff), doré (#f5b700)
+Polices : Montserrat (texte), Rocaleta (titres)
+Cohérence globale des pages : header/footer identiques, boutons visibles et harmonisés
+Sous-menu interactif pour Nos Offres
+Boutons “Simuler maintenant” accessibles sur toutes les pages produits                                                                                                                             
+importe des images libre de droits pour les illustrations

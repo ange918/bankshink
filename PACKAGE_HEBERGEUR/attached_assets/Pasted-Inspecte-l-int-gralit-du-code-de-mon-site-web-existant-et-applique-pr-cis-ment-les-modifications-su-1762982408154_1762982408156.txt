@@ -1,0 +1,37 @@
+Inspecte l’intégralité du code de mon site web existant et applique précisément les modifications suivantes :
+
+1️⃣ **Alignement des sections :**
+- Aligner les cards de la section **"Nos produits"** exactement comme celles de la section **"Nos engagements"** (même style, taille, espacement, alignement centré et responsive).
+
+2️⃣ **Ajout de 3 mini-cards :**
+- Après la section **"Qu’est-ce que..."** sur chaque page de crédit (toutes les pages du sous-menu de la page **"Nos offres"**), ajouter une nouvelle section avec 3 petites cards affichées côte à côte.
+  - Card 1 : **Taux** → texte : "3.5% TAEG"
+  - Card 2 : **Délai** → texte : "Fonds disponibles en 48h"
+  - Card 3 : **Montant** → texte variable selon le type de crédit :
+    - Microcrédit personnel : 500 à 70.000
+    - Crédit de consommation : 500 à 100.000
+    - Crédit agricole : 3.000 à 900.000
+    - Crédit étudiant : 10.000 à 130.000
+    - Crédit express : 12.000 à 500.000
+    - Crédit digital : 500.000 à 3.000.000
+    - Crédit professionnel : 3.000 à 750.000
+    - Crédit immobilier : 13.000 à 100.000
+    - Crédit automobile : 5.000 à 120.000
+
+💡 Les 3 cards doivent être stylisées avec des bords arrondis, une légère ombre, fond blanc ou clair, icônes illustratives et une disposition responsive (en colonne sur mobile).
+
+3️⃣ **Mise à jour des montants dans les niveaux de services :**
+- Mettre à jour chaque niveau/service selon le **montant plafond** indiqué ci-dessus pour chaque type de crédit.
+
+4️⃣ **Section héros :**
+- Rendre **l’image d’arrière-plan** de la section héros **plus visible et nette**, sans que le texte perde en lisibilité (ajuster opacité, filtre ou superposition si nécessaire).
+
+5️⃣ **Footer :**
+- Bien **aligner les colonnes** du footer (Liens rapides, Contact, Réseaux sociaux, etc.)
+- S’assurer que tout est **proprement centré et équilibré** sur desktop et mobile.
+
+🎨 Conserver le style général du site, les couleurs et les polices existantes.
+
+Enfin :
+- Vérifie que toutes les nouvelles sections sont bien intégrées dans le routage et cohérentes avec la charte visuelle actuelle.
+- Ne pas casser le responsive design ni les composants existants.

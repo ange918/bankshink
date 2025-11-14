@@ -1,0 +1,116 @@
+Tu es un développeur PHP senior spécialisé en intégration de systèmes d’e-mails avec PHPMailer.
+
+Je veux que tu corriges et finalises un script PHP appelé `process_form.php` qui gère les formulaires d’un site.
+
+Voici les instructions précises et à respecter à la lettre :
+
+---
+
+1️⃣ **PROBLÈME ACTUEL**
+Le SMTP utilisé actuellement renvoie une erreur quand on appuie sur “Soumettre” dans le formulaire.  
+Tu dois :
+- Trouver et corriger la cause exacte de l’erreur SMTP.
+- Vérifier que les informations SMTP ci-dessous sont **correctement présentes** dans le code.
+- Empêcher toute erreur visible à l’utilisateur : si l’envoi échoue, affiche un message clair dans la page (pas de pop-up).
+
+Voici les **informations SMTP à utiliser (et à protéger)** :
+Host = mail.craft-style.com
+Username = shinebanque@craft-style.com
+Password = 91rerdakonde
+SMTPSecure = PHPMailer::ENCRYPTION_SMTPS
+Port = 465
+
+⚠️ Ces identifiants doivent être **protégés dans un fichier `.env`** (ou équivalent).  
+Ne jamais les écrire en clair dans le code principal.  
+Le script doit donc charger les infos avec `getenv()` via la bibliothèque `vlucas/phpdotenv`.  
+
+Si une variable manque, affiche un message d’erreur clair dans la page (aucune pop-up).
+
+---
+
+2️⃣ **OBJECTIF DU SCRIPT**
+
+Le script `process_form.php` doit :
+- Récupérer toutes les données du formulaire (nom, email, message, fichiers, etc.)
+- Vérifier la validité de chaque champ.
+- Si un champ est vide → afficher un message d’erreur dans la page.
+- Si tout est correct → afficher dans la page :
+  ✅ “Votre demande a bien été envoyée. Vous recevrez un mail de confirmation dans quelques instants.”
+- Aucune pop-up ou alerte JavaScript.
+- Aucun rechargement de page inutile.
+
+---
+
+3️⃣ **EMAILS À ENVOYER**
+
+Le système doit envoyer **2 emails** via PHPMailer :
+
+✅ **1. À l’administrateur :**  
+   - Adresse : `shinebanque0@gmail.com`  
+   - Contenu : toutes les données saisies + pièces jointes.
+
+✅ **2. Au client :**  
+   - Expéditeur : `shinebanque@craft-style.com`  
+   - Objet : “Confirmation de votre demande”  
+   - Contenu HTML avec un design professionnel et moderne (voir modèle ci-dessous).
+
+---
+
+4️⃣ **DESIGN DU MAIL CLIENT**
+
+L’email de confirmation envoyé au client doit être élégant, clair et visuellement professionnel, avec ce modèle HTML :
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Confirmation de votre demande</title>
+<style>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f9fb;
+  color: #333;
+  text-align: center;
+  padding: 40px;
+}
+.container {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+h1 {
+  color: #003366;
+  margin-bottom: 20px;
+}
+p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+.footer {
+  margin-top: 30px;
+  font-size: 13px;
+  color: #888;
+}
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">✨ Shine Banque ✨</div>
+    <h1>Confirmation de votre demande</h1>
+    <p>✅ Votre demande a bien été reçue par <strong>Shine Banque</strong>.</p>
+    <p>Vous recevrez une réponse dans un délai de <strong>3 jours ouvrables</strong>.</p>
+    <p>Merci de votre confiance.</p>
+    <div class="footer">© 2025 Shine Banque – Tous droits réservés.</div>
+  </div>
+</body>
+</html>

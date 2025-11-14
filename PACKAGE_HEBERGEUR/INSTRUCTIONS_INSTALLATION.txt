@@ -1,0 +1,115 @@
+═══════════════════════════════════════════════════════════════
+🚀 GUIDE D'INSTALLATION SUR VOTRE HÉBERGEUR PHP
+═══════════════════════════════════════════════════════════════
+
+✅ ÉTAPE 1: UPLOADER LES FICHIERS
+─────────────────────────────────────────────────────────────
+Uploadez TOUT le contenu de ce dossier (PACKAGE_HEBERGEUR) 
+sur votre hébergeur via FTP ou le panneau de contrôle.
+
+Structure finale sur votre hébergeur:
+/public_html/ (ou /www/ selon votre hébergeur)
+├── index.html
+├── process_form.php       ← Script d'envoi email (100% PHP!)
+├── composer.json
+├── css/
+├── js/
+├── pages/
+├── images/
+└── attached_assets/
+
+✅ ÉTAPE 2: INSTALLER PHPMAILER
+─────────────────────────────────────────────────────────────
+Connectez-vous en SSH à votre hébergeur et exécutez:
+
+   cd /chemin/vers/votre/site
+   composer install
+
+Cela va créer le dossier vendor/ avec PHPMailer.
+
+Si vous n'avez pas accès SSH:
+→ Installez composer sur votre ordinateur
+→ Exécutez "composer install" localement
+→ Uploadez le dossier vendor/ généré sur votre hébergeur
+
+✅ ÉTAPE 3: VÉRIFIER LES PERMISSIONS
+─────────────────────────────────────────────────────────────
+Le dossier uploads/ doit être accessible en écriture:
+
+   chmod 755 uploads/
+
+(Le script PHP créera automatiquement ce dossier si nécessaire)
+
+✅ ÉTAPE 4: TESTER L'ENVOI D'EMAIL
+─────────────────────────────────────────────────────────────
+1. Ouvrez votre site: http://votre-domaine.com
+2. Allez au simulateur de prêt
+3. Remplissez le formulaire
+4. Soumettez
+
+Vous devriez recevoir 2 emails:
+→ Client: Email de confirmation
+→ Admin (shinebanque0@gmail.com): Détails de la demande
+
+═══════════════════════════════════════════════════════════════
+🔧 CONFIGURATION SMTP (DÉJÀ FAITE!)
+═══════════════════════════════════════════════════════════════
+Les credentials sont déjà hardcodés dans process_form.php:
+
+Serveur SMTP: mail.craft-style.com
+Port: 465 (SSL)
+Utilisateur: shinebanque@craft-style.com
+Mot de passe: 91rerdakonde
+Email admin: shinebanque0@gmail.com
+
+PAS DE FICHIER .ENV REQUIS!
+TOUT EST DÉJÀ CONFIGURÉ!
+
+═══════════════════════════════════════════════════════════════
+❌ FICHIERS QUI NE SONT PAS INCLUS (Normal!)
+═══════════════════════════════════════════════════════════════
+Ces fichiers sont uniquement pour le développement Replit:
+✗ server.py
+✗ email_service.py
+✗ app.py
+✗ models.py
+✗ main.py
+✗ test_form_submission.py
+
+ILS NE SONT PAS NÉCESSAIRES SUR VOTRE HÉBERGEUR!
+
+═══════════════════════════════════════════════════════════════
+🎯 COMMENT ÇA FONCTIONNE?
+═══════════════════════════════════════════════════════════════
+
+1. Client visite: http://votre-domaine.com/pages/simulateur.html
+2. Client remplit le formulaire
+3. JavaScript envoie les données à: /process_form.php
+4. PHP (process_form.php) reçoit les données
+5. PHPMailer envoie les emails via SMTP
+6. Client reçoit la confirmation
+7. Admin reçoit les détails
+
+100% PHP - AUCUN PYTHON IMPLIQUÉ!
+
+═══════════════════════════════════════════════════════════════
+🆘 EN CAS DE PROBLÈME
+═══════════════════════════════════════════════════════════════
+
+Problème: "Class 'PHPMailer' not found"
+→ Solution: Installez composer et exécutez "composer install"
+
+Problème: "SMTP connect() failed"
+→ Solution: Vérifiez que votre hébergeur autorise les connexions SMTP sortantes
+
+Problème: "Permission denied" pour uploads/
+→ Solution: chmod 755 uploads/
+
+Problème: Emails non reçus
+→ Vérifiez le dossier spam
+→ Vérifiez les logs PHP de votre hébergeur
+→ Contactez votre hébergeur pour vérifier les restrictions SMTP
+
+═══════════════════════════════════════════════════════════════
+✅ VOTRE SITE EST PRÊT POUR LA PRODUCTION!
+═══════════════════════════════════════════════════════════════

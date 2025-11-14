@@ -1,0 +1,87 @@
+PROMPT À EXÉCUTER SUR LE PROJET SHINE BANQUE 💳
+
+🎯 Objectif :
+Mettre à jour le **formulaire de demande de prêt** (simulateur ou section "Demande de prêt") afin de :
+1️⃣ Renforcer la validation stricte sur la **première étape**,  
+2️⃣ Ajouter dans la **troisième étape** de nouveaux champs pour téléverser les **pièces d’identité recto-verso** et la **carte bancaire recto-verso**.
+
+-----------------------
+🔧 Tâches à exécuter :
+
+## 🧩 Étape 1 – Validation stricte des champs et de l’âge
+
+1️⃣ Vérifie le code du formulaire de demande de prêt :
+   - Le formulaire comporte plusieurs étapes (étape 1 = infos personnelles, étape 2 = infos financières, étape 3 = justificatifs, etc.).
+   - L’utilisateur ne doit **pas pouvoir passer à l’étape suivante** tant que la première n’est pas complètement remplie.
+
+2️⃣ Mets en place une **vérification JavaScript** :
+   - Quand l’utilisateur clique sur le bouton “Suivant” ou “Continuer” :
+     - Vérifie que **tous les champs obligatoires** de la première étape sont remplis :  
+       → nom, prénom, date de naissance, email, numéro de téléphone, etc.  
+     - Si un champ est vide :
+       - Empêche la progression,  
+       - Affiche un message d’erreur clair :  
+         > “Veuillez remplir tous les champs avant de continuer.”
+       - Encadre les champs vides en rouge avec un message d’avertissement en dessous.
+
+3️⃣ Vérification de l’âge :
+   - Utilise le champ “Date de naissance” pour calculer l’âge de l’utilisateur.
+   - Si l’âge est **inférieur à 18 ans**, bloque la progression et affiche un message d’erreur :
+     > “Vous devez avoir au moins 18 ans pour effectuer une demande de prêt.”
+   - Le champ reste surligné en rouge jusqu’à correction.
+
+4️⃣ Le bouton “Suivant” doit rester **désactivé** tant que :
+   - Un champ est vide,  
+   - OU l’utilisateur a moins de 18 ans.  
+
+5️⃣ Le design doit rester identique (bleu et blanc, police Montserrat).
+   - Les messages d’erreur doivent être en rouge clair (#ff4d4d), lisibles mais élégants.
+
+6️⃣ Vérifie le comportement :
+   - Sur PC 💻
+   - Sur mobile 📱
+   - Sur tablette 📟
+   Le rendu et les validations doivent être parfaits sur tous les écrans.
+
+-----------------------
+## 🧩 Étape 3 – Ajout de champs de téléchargement
+
+1️⃣ Dans la **troisième étape du formulaire**, ajoute une section supplémentaire intitulée :
+   > “📎 Téléversement des documents requis”
+
+2️⃣ Ajoute quatre champs distincts de type `file` :
+   - **Carte d’identité – Recto**
+   - **Carte d’identité – Verso**
+   - **Carte bancaire – Recto**
+   - **Carte bancaire – Verso**
+
+3️⃣ Ces champs doivent :
+   - Accepter uniquement les fichiers images (JPG, PNG, JPEG, PDF).  
+     Exemple d’attribut HTML :  
+     ```html
+     accept=".jpg,.jpeg,.png,.pdf"
+     ```
+   - Être obligatoires avant la soumission finale.
+   - Être stylisés proprement (même style que le reste du formulaire).
+   - Afficher un aperçu miniature (optionnel) après sélection du fichier.
+
+4️⃣ Si l’utilisateur ne charge pas un ou plusieurs fichiers obligatoires :
+   - Empêcher la soumission finale du formulaire.
+   - Afficher un message d’erreur sous le champ concerné :
+     > “Ce document est requis pour finaliser votre demande.”
+
+5️⃣ Le titre de la section peut être en bleu, avec un fond clair pour bien séparer cette partie :
+   > “Documents nécessaires à l’étude de votre dossier.”
+
+-----------------------
+## 🧩 Vérifications finales :
+✅ L’utilisateur ne peut pas passer à l’étape 2 tant que la première n’est pas complète.  
+✅ Il doit avoir **au moins 18 ans**.  
+✅ Dans l’étape 3, il doit **téléverser les 4 fichiers obligatoires** avant la soumission.  
+✅ L’ensemble doit être responsive (mobile, PC, tablette).  
+✅ Le design doit rester cohérent avec le reste du site Shine Banque.
+
+-----------------------
+🧠 Vérification console :
+À la fin du script, affiche dans la console :
+"✅ Mise à jour du formulaire de prêt (validation stricte + documents justificatifs) activée avec succès sur Shine Banque."

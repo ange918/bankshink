@@ -1,0 +1,85 @@
+═══════════════════════════════════════════════════════════
+LISTE DES FICHIERS À UPLOADER SUR VOTRE HÉBERGEUR PHP
+═══════════════════════════════════════════════════════════
+
+✅ FICHIERS PHP (OBLIGATOIRES)
+├── index.html
+├── process_form.php          ← Script d'envoi d'email (autonome, pas de Python!)
+├── composer.json
+└── vendor/                   ← Dossier PHPMailer (à générer avec: composer install)
+    └── autoload.php
+
+✅ PAGES HTML
+└── pages/
+    ├── simulateur.html
+    ├── apropos.html
+    ├── contact.html
+    └── [autres pages .html]
+
+✅ FICHIERS CSS
+└── css/
+    └── style.css
+
+✅ FICHIERS JAVASCRIPT
+└── js/
+    ├── main.js
+    └── translations.js
+
+✅ IMAGES
+└── images/
+    └── [tous vos fichiers images]
+
+✅ AUTRES ASSETS
+└── attached_assets/
+    └── stock_images/
+        └── [vos images]
+
+═══════════════════════════════════════════════════════════
+❌ NE PAS UPLOADER (fichiers Replit uniquement)
+═══════════════════════════════════════════════════════════
+✗ server.py               ← Serveur de développement Replit
+✗ email_service.py        ← Ancien service Python (non utilisé)
+✗ app.py                  ← Configuration Flask (non utilisé)
+✗ models.py               ← Modèles database (non utilisé)
+✗ main.py                 ← Point d'entrée Flask (non utilisé)
+✗ test_form_submission.py ← Script de test (non utilisé)
+✗ .replit                 ← Config Replit
+✗ replit.nix              ← Config Replit
+✗ pyproject.toml          ← Config Python
+✗ uv.lock                 ← Lock Python
+
+═══════════════════════════════════════════════════════════
+ÉTAPES SUR VOTRE HÉBERGEUR PHP
+═══════════════════════════════════════════════════════════
+
+1. Uploadez tous les fichiers ✅ listés ci-dessus
+
+2. Connectez-vous en SSH à votre hébergeur et exécutez:
+   cd /chemin/vers/votre/site
+   composer install
+
+   → Cela générera le dossier vendor/ avec PHPMailer
+
+3. Vérifiez que process_form.php contient vos credentials:
+   - Serveur: mail.craft-style.com
+   - Email: shinebanque@craft-style.com
+   - Mot de passe: 91rerdakonde
+   - Port: 465 (SSL)
+
+4. C'est tout! Le formulaire enverra les emails directement.
+
+═══════════════════════════════════════════════════════════
+COMMENT ÇA FONCTIONNE SUR VOTRE HÉBERGEUR?
+═══════════════════════════════════════════════════════════
+
+Client remplit le formulaire (simulateur.html)
+        ↓
+JavaScript envoie à process_form.php
+        ↓
+PHP lit les données + fichiers uploadés
+        ↓
+PHPMailer envoie 2 emails via SMTP
+        ↓
+Client + Admin reçoivent les emails
+
+AUCUN PYTHON IMPLIQUÉ! 100% PHP!
