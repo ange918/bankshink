@@ -18,19 +18,12 @@ Structure finale sur votre hébergeur:
 ├── images/
 └── attached_assets/
 
-✅ ÉTAPE 2: INSTALLER PHPMAILER
+✅ ÉTAPE 2: PHPMAILER EST DÉJÀ INSTALLÉ!
 ─────────────────────────────────────────────────────────────
-Connectez-vous en SSH à votre hébergeur et exécutez:
+Le dossier vendor/ contenant PHPMailer est déjà inclus dans le package!
 
-   cd /chemin/vers/votre/site
-   composer install
-
-Cela va créer le dossier vendor/ avec PHPMailer.
-
-Si vous n'avez pas accès SSH:
-→ Installez composer sur votre ordinateur
-→ Exécutez "composer install" localement
-→ Uploadez le dossier vendor/ généré sur votre hébergeur
+VOUS N'AVEZ RIEN À INSTALLER!
+UPLOADEZ TOUT TEL QUEL SUR VOTRE HÉBERGEUR!
 
 ✅ ÉTAPE 3: VÉRIFIER LES PERMISSIONS
 ─────────────────────────────────────────────────────────────
