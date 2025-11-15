@@ -208,7 +208,7 @@ nav ul li a:hover {
 }
 
 .hero {
-    background: linear-gradient(135deg, rgba(0, 43, 122, 0.5) 0%, rgba(0, 68, 204, 0.55) 100%), url('../images/happy_family_smiling_015549fc.jpg') center/cover;
+    background: linear-gradient(135deg, rgba(0, 43, 122, 0.5) 0%, rgba(0, 68, 204, 0.55) 100%), url('../images/hero.jpeg') center/cover;
     color: var(--white);
     padding: 150px 0;
     position: relative;
