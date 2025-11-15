@@ -125,10 +125,12 @@ nav ul li a:hover {
     border-radius: 8px;
     padding: 20px;
     display: none;
-    min-width: 600px;
+    min-width: 650px;
+    max-height: none;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    z-index: 1000;
+    z-index: 10000;
+    overflow: visible;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -141,6 +143,7 @@ nav ul li a:hover {
     white-space: nowrap;
     text-align: center;
     transition: all 0.3s ease;
+    font-size: 0.95rem;
 }
 
 .dropdown-menu a:hover {
