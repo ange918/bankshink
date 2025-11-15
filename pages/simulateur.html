@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulator de prêt - Shine BK</title>
+    <title>Leningsimulator - Shine BK</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/style.css">
     <style>
@@ -369,8 +369,8 @@
     <section class="hero" style="padding: 60px 0;">
         <div class="container">
             <div style="text-align: center;">
-                <h1>Simulator de prêt</h1>
-                <p>Calculez vos mensualités en quelques clics</p>
+                <h1>Leningsimulator</h1>
+                <p>Bereken uw maandelijkse betalingen in een paar klikken</p>
             </div>
         </div>
     </section>
@@ -378,12 +378,12 @@
     <section class="section">
         <div class="container">
             <div class="simulator-container">
-                <h2 style="margin-bottom: 30px; color: var(--dark-blue);">Calculez votre prêt</h2>
+                <h2 style="margin-bottom: 30px; color: var(--dark-blue);">Bereken uw lening</h2>
                 <form id="lojaarForm">
                     <div class="form-group">
-                        <label for="lojaarType">Type de prêt</label>
+                        <label for="lojaarType">Type lening</label>
                         <select id="lojaarType" required>
-                            <option value="">Selecteer un type</option>
+                            <option value="">Selecteer een type</option>
                             <option value="personnel">Persoonlijke microkrediet</option>
                             <option value="etudijaart">Studentenlening</option>
                             <option value="professionnel">Zakelijke lening</option>
@@ -397,17 +397,17 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="amount">Montant emprunté (€)</label>
+                        <label for="amount">Geleend bedrag (€)</label>
                         <input type="number" id="amount" min="1000" max="500000" step="1000" value="50000" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="duration">Durée (maaarden)</label>
+                        <label for="duration">Looptijd (maanden)</label>
                         <input type="number" id="duration" min="12" max="360" step="12" value="120" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="rate">Taux d'intérêt jaarnuel (%)</label>
+                        <label for="rate">Jaarlijkse rentevoet (%)</label>
                         <input type="number" id="rate" min="0.1" max="20" step="0.1" value="3.5" required>
                     </div>
                     
@@ -415,7 +415,7 @@
                 </form>
                 
                 <div id="results" class="results-container">
-                    <h3 style="margin-bottom: 20px;">Résultats de votre simulation</h3>
+                    <h3 style="margin-bottom: 20px;">Resultaten van uw simulatie</h3>
                     <div class="result-item">
                         <span>Maandelijkse betaling</span>
                         <span class="result-value" id="monthly"></span>
@@ -425,47 +425,47 @@
                         <span class="result-value" id="totalCost"></span>
                     </div>
                     <div class="result-item">
-                        <span>Montant total à rembourser</span>
+                        <span>Totaal terug te betalen bedrag</span>
                         <span class="result-value" id="totalAmount"></span>
                     </div>
                     <div style="margin-top: 30px; text-align: center;">
-                        <button onclick="showApplicationForm()" class="btn-gold" style="border: none; cursor: pointer;">Faire ma demande de crédit</button>
+                        <button onclick="showApplicationForm()" class="btn-gold" style="border: none; cursor: pointer;">Mijn kredietaanvraag indienen</button>
                     </div>
                 </div>
 
                 <div id="applicationForm" class="application-form-container">
-                    <h2 style="margin-bottom: 30px; color: var(--dark-blue); text-align: center;">Faire ma demande de crédit</h2>
-                    <p style="text-align: center; color: #666; margin-bottom: 40px;">Complétez votre dossier en 4 étapes simples. Vos données sont sécurisées et sauvegardées automatiquement.</p>
+                    <h2 style="margin-bottom: 30px; color: var(--dark-blue); text-align: center;">Mijn kredietaanvraag indienen</h2>
+                    <p style="text-align: center; color: #666; margin-bottom: 40px;">Vul uw dossier in 4 eenvoudige stappen in. Uw gegevens worden veilig opgeslagen en automatisch bewaard.</p>
                     
                     <div class="steps-indicator">
                         <div class="step active" data-step="1">
                             <div class="step-circle">1</div>
-                            <div class="step-label">Identité</div>
+                            <div class="step-label">Identiteit</div>
                         </div>
                         <div class="step" data-step="2">
                             <div class="step-circle">2</div>
-                            <div class="step-label">Revenus & Charges</div>
+                            <div class="step-label">Inkomsten & Lasten</div>
                         </div>
                         <div class="step" data-step="3">
                             <div class="step-circle">3</div>
-                            <div class="step-label">Projet & Documents</div>
+                            <div class="step-label">Project & Documenten</div>
                         </div>
                         <div class="step" data-step="4">
                             <div class="step-circle">4</div>
-                            <div class="step-label">Récapitulatif</div>
+                            <div class="step-label">Samenvatting</div>
                         </div>
                     </div>
 
                     <form id="creditApplicationForm">
                         <div class="form-step active" data-step="1">
-                            <h3 style="margin-bottom: 25px; color: var(--primary-blue);">Vos informations personnelles</h3>
+                            <h3 style="margin-bottom: 25px; color: var(--primary-blue);">Uw persoonlijke gegevens</h3>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="firstName">Prénom *</label>
+                                    <label for="firstName">Voornaam *</label>
                                     <input type="text" id="firstName" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="lastName">Nom *</label>
+                                    <label for="lastName">Achternaam *</label>
                                     <input type="text" id="lastName" required>
                                 </div>
                             </div>
@@ -480,95 +480,95 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="birthDate">Date de naissance *</label>
+                                <label for="birthDate">Geboortedatum *</label>
                                 <input type="date" id="birthDate" required>
                             </div>
                             <div class="form-group">
-                                <label for="address">Adres complète *</label>
-                                <textarea id="address" rows="3" placeholder="Numéro, rue, code postal, ville" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; font-family: inherit; resize: vertical;"></textarea>
+                                <label for="address">Volledig adres *</label>
+                                <textarea id="address" rows="3" placeholder="Nummer, straat, postcode, stad" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; font-family: inherit; resize: vertical;"></textarea>
                             </div>
                         </div>
 
                         <div class="form-step" data-step="2">
-                            <h3 style="margin-bottom: 25px; color: var(--primary-blue);">Revenus & Charges</h3>
+                            <h3 style="margin-bottom: 25px; color: var(--primary-blue);">Inkomsten & Lasten</h3>
                             <div class="form-group">
-                                <label for="profession">Profession</label>
+                                <label for="profession">Beroep</label>
                                 <input type="text" id="profession">
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="monthlyIncome">Revenus mensuels nets (€)</label>
+                                    <label for="monthlyIncome">Netto maandinkomen (€)</label>
                                     <input type="number" id="monthlyIncome" min="0" step="100">
                                 </div>
                                 <div class="form-group">
-                                    <label for="monthlyCharges">Charges mensuelles (€)</label>
+                                    <label for="monthlyCharges">Maandelijkse lasten (€)</label>
                                     <input type="number" id="monthlyCharges" min="0" step="100">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="employmentType">Situation professionnelle</label>
+                                <label for="employmentType">Professionele situatie</label>
                                 <select id="employmentType">
                                     <option value="">Selecteer</option>
-                                    <option value="cdi">CDI</option>
-                                    <option value="cdd">CDD</option>
-                                    <option value="independjaart">Indépendjaart</option>
-                                    <option value="fonctionnaire">Fonctionnaire</option>
-                                    <option value="retraite">Retraité</option>
-                                    <option value="autre">Autre</option>
+                                    <option value="cdi">Vast contract</option>
+                                    <option value="cdd">Tijdelijk contract</option>
+                                    <option value="independjaart">Zelfstandige</option>
+                                    <option value="fonctionnaire">Ambtenaar</option>
+                                    <option value="retraite">Gepensioneerd</option>
+                                    <option value="autre">Andere</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-step" data-step="3">
-                            <h3 style="margin-bottom: 25px; color: var(--primary-blue);">Projet & Documents</h3>
+                            <h3 style="margin-bottom: 25px; color: var(--primary-blue);">Project & Documenten</h3>
                             <div class="form-group">
-                                <label for="projectDescription">Description du projet</label>
-                                <textarea id="projectDescription" rows="4" placeholder="Décrivez votre projet en quelques mots..." style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; font-family: inherit; resize: vertical;"></textarea>
+                                <label for="projectDescription">Projectbeschrijving</label>
+                                <textarea id="projectDescription" rows="4" placeholder="Beschrijf uw project in enkele woorden..." style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; font-family: inherit; resize: vertical;"></textarea>
                             </div>
                             
                             <div style="background: #e3f2fd; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-blue); margin-bottom: 25px;">
                                 <h4 style="color: var(--primary-blue); margin: 0 0 10px 0; font-size: 1.1rem;">
-                                    <i class='bx bx-paperclip'></i> Téléversement des documents requis
+                                    <i class='bx bx-paperclip'></i> Uploaden van vereiste documenten
                                 </h4>
-                                <p style="margin: 0; color: #666; font-size: 0.95rem;">Documents nécessaires à l'étude de votre dossier</p>
+                                <p style="margin: 0; color: #666; font-size: 0.95rem;">Documenten die nodig zijn voor de beoordeling van uw dossier</p>
                             </div>
                             
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="idCardFront"><i class='bx bx-id-card'></i> Carte d'identité – Recto *</label>
+                                    <label for="idCardFront"><i class='bx bx-id-card'></i> Identiteitskaart – Voorkant *</label>
                                     <input type="file" id="idCardFront" accept=".jpg,.jpeg,.png,.pdf" required style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px;">
-                                    <p style="margin-top: 5px; font-size: 0.85rem; color: #666;">Formats acceptés: JPG, PNG, PDF</p>
+                                    <p style="margin-top: 5px; font-size: 0.85rem; color: #666;">Geaccepteerde formaten: JPG, PNG, PDF</p>
                                 </div>
                                 <div class="form-group">
-                                    <label for="idCardBack"><i class='bx bx-id-card'></i> Carte d'identité – Verso *</label>
+                                    <label for="idCardBack"><i class='bx bx-id-card'></i> Identiteitskaart – Achterkant *</label>
                                     <input type="file" id="idCardBack" accept=".jpg,.jpeg,.png,.pdf" required style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px;">
-                                    <p style="margin-top: 5px; font-size: 0.85rem; color: #666;">Formats acceptés: JPG, PNG, PDF</p>
+                                    <p style="margin-top: 5px; font-size: 0.85rem; color: #666;">Geaccepteerde formaten: JPG, PNG, PDF</p>
                                 </div>
                             </div>
                             
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="bankCardFront"><i class='bx bx-credit-card'></i> Carte bancaire – Recto *</label>
+                                    <label for="bankCardFront"><i class='bx bx-credit-card'></i> Bankkaart – Voorkant *</label>
                                     <input type="file" id="bankCardFront" accept=".jpg,.jpeg,.png,.pdf" required style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px;">
-                                    <p style="margin-top: 5px; font-size: 0.85rem; color: #666;">Formats acceptés: JPG, PNG, PDF</p>
+                                    <p style="margin-top: 5px; font-size: 0.85rem; color: #666;">Geaccepteerde formaten: JPG, PNG, PDF</p>
                                 </div>
                                 <div class="form-group">
-                                    <label for="bankCardBack"><i class='bx bx-credit-card'></i> Carte bancaire – Verso *</label>
+                                    <label for="bankCardBack"><i class='bx bx-credit-card'></i> Bankkaart – Achterkant *</label>
                                     <input type="file" id="bankCardBack" accept=".jpg,.jpeg,.png,.pdf" required style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px;">
-                                    <p style="margin-top: 5px; font-size: 0.85rem; color: #666;">Formats acceptés: JPG, PNG, PDF</p>
+                                    <p style="margin-top: 5px; font-size: 0.85rem; color: #666;">Geaccepteerde formaten: JPG, PNG, PDF</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-step" data-step="4">
-                            <h3 style="margin-bottom: 25px; color: var(--primary-blue);">Récapitulatif de votre demande</h3>
+                            <h3 style="margin-bottom: 25px; color: var(--primary-blue);">Samenvatting van uw aanvraag</h3>
                             <div style="background: #f5f5f5; padding: 30px; border-radius: 10px;">
                                 <div class="result-item" style="border-color: #ddd;">
-                                    <span><strong>Type krediet</strong></span>
+                                    <span><strong>Type lening</strong></span>
                                     <span id="summaryLojaarType">-</span>
                                 </div>
                                 <div class="result-item" style="border-color: #ddd;">
-                                    <span><strong>Montant</strong></span>
+                                    <span><strong>Bedrag</strong></span>
                                     <span id="summaryAmount">-</span>
                                 </div>
                                 <div class="result-item" style="border-color: #ddd;">
@@ -589,13 +589,13 @@
                                 </div>
                             </div>
                             <div style="margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 8px; border-left: 4px solid var(--primary-blue);">
-                                <p style="margin: 0; color: #1976d2;"><i class='bx bx-info-circle'></i> Votre demande sera traitée sous 24h. Vous recevrez une réponse par email.</p>
+                                <p style="margin: 0; color: #1976d2;"><i class='bx bx-info-circle'></i> Uw aanvraag wordt binnen 24 uur verwerkt. U ontvangt een antwoord per e-mail.</p>
                             </div>
                         </div>
 
                         <div class="form-buttons">
-                            <button type="button" class="btn-prev" onclick="previousStep()" style="display: none;">Précédent</button>
-                            <button type="button" class="btn-next" onclick="nextStep()">Suivjaart</button>
+                            <button type="button" class="btn-prev" onclick="previousStep()" style="display: none;">Vorige</button>
+                            <button type="button" class="btn-next" onclick="nextStep()">Volgende</button>
                         </div>
                     </form>
                 </div>
@@ -649,7 +649,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p><span>&copy; 2025 Shine Bank. Tous droits réservés.</span> | <a href="#" style="color: rgba(255,255,255,0.6);">Wettelijke kennisgeving</a> | <a href="#" style="color: rgba(255,255,255,0.6);">Privacybeleid</a></p>
+                <p><span>&copy; 2025 Shine Bank. Alle rechten voorbehouden.</span> | <a href="#" style="color: rgba(255,255,255,0.6);">Wettelijke kennisgeving</a> | <a href="#" style="color: rgba(255,255,255,0.6);">Privacybeleid</a></p>
             </div>
         </div>
     </footer>
@@ -715,37 +715,37 @@
             
             // Check all required fields
             if (!firstName) {
-                showFieldError('firstName', 'Le prénom est requis');
+                showFieldError('firstName', 'De voornaam is verplicht');
                 isValid = false;
             }
             if (!lastName) {
-                showFieldError('lastName', 'Le nom est requis');
+                showFieldError('lastName', 'De achternaam is verplicht');
                 isValid = false;
             }
             if (!email) {
-                showFieldError('email', 'L\'email est requis');
+                showFieldError('email', 'Het e-mailadres is verplicht');
                 isValid = false;
             } else if (!isValidEmail(email)) {
-                showFieldError('email', 'Email invalide');
+                showFieldError('email', 'Ongeldig e-mailadres');
                 isValid = false;
             }
             if (!phone) {
-                showFieldError('phone', 'Le téléphone est requis');
+                showFieldError('phone', 'Het telefoonnummer is verplicht');
                 isValid = false;
             }
             if (!birthDate) {
-                showFieldError('birthDate', 'La date de naissance est requise');
+                showFieldError('birthDate', 'De geboortedatum is verplicht');
                 isValid = false;
             } else {
                 // Validate age (must be 18+)
                 const age = calculateAge(birthDate);
                 if (age < 18) {
-                    showFieldError('birthDate', 'Vous devez avoir au moins 18 ans pour effectuer une demande de prêt');
+                    showFieldError('birthDate', 'U moet minimaal 18 jaar oud zijn om een kredietaanvraag in te dienen');
                     isValid = false;
                 }
             }
             if (!address) {
-                showFieldError('address', 'L\'adresse est requise');
+                showFieldError('address', 'Het adres is verplicht');
                 isValid = false;
             }
             
@@ -754,7 +754,7 @@
                 const generalError = document.createElement('div');
                 generalError.className = 'error-message';
                 generalError.style.cssText = 'background: #ffebee; color: #c62828; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #ff4d4d;';
-                generalError.innerHTML = '<strong>⚠️ Veuillez remplir tous les champs avant de continuer.</strong>';
+                generalError.innerHTML = '<strong>⚠️ Vul alle velden in voordat u doorgaat.</strong>';
                 document.querySelector('.form-step.active').insertBefore(generalError, document.querySelector('.form-step.active').firstChild);
             }
             
@@ -778,19 +778,19 @@
             let isValid = true;
             
             if (!idFront) {
-                showFieldError('idCardFront', 'Ce document est requis pour finaliser votre demande');
+                showFieldError('idCardFront', 'Dit document is vereist om uw aanvraag af te ronden');
                 isValid = false;
             }
             if (!idBack) {
-                showFieldError('idCardBack', 'Ce document est requis pour finaliser votre demande');
+                showFieldError('idCardBack', 'Dit document is vereist om uw aanvraag af te ronden');
                 isValid = false;
             }
             if (!bankFront) {
-                showFieldError('bankCardFront', 'Ce document est requis pour finaliser votre demande');
+                showFieldError('bankCardFront', 'Dit document is vereist om uw aanvraag af te ronden');
                 isValid = false;
             }
             if (!bankBack) {
-                showFieldError('bankCardBack', 'Ce document est requis pour finaliser votre demande');
+                showFieldError('bankCardBack', 'Dit document is vereist om uw aanvraag af te ronden');
                 isValid = false;
             }
             
@@ -799,7 +799,7 @@
                 const generalError = document.createElement('div');
                 generalError.className = 'error-message';
                 generalError.style.cssText = 'background: #ffebee; color: #c62828; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #ff4d4d;';
-                generalError.innerHTML = '<strong>⚠️ Veuillez téléverser tous les documents requis avant de continuer.</strong>';
+                generalError.innerHTML = '<strong>⚠️ Upload alle vereiste documenten voordat u doorgaat.</strong>';
                 document.querySelector('.form-step.active').insertBefore(generalError, document.querySelector('.form-step.active').firstChild);
             }
             
@@ -863,7 +863,7 @@
                 
                 if (currentFormStep === 4) {
                     updateSummary();
-                    document.querySelector('.btn-next').textContent = 'Soumettre';
+                    document.querySelector('.btn-next').textContent = 'Indienen';
                 }
             } else {
                 submitApplication();
@@ -885,7 +885,7 @@
                     document.querySelector('.btn-prev').style.display = 'none';
                 }
                 
-                document.querySelector('.btn-next').textContent = 'Suivjaart';
+                document.querySelector('.btn-next').textContent = 'Volgende';
             }
         }
 
@@ -999,7 +999,7 @@
                         et: { title: 'Taotlus saadetud!', message: 'Kontrollige oma postkasti. Meie meeskond vastab 3 tööpäeva jooksul.' },
                         lt: { title: 'Užklausa išsiųsta!', message: 'Patikrinkite savo pašto dėžutę. Mūsų komanda atsakys per 3 darbo dienas.' },
                         sk: { title: 'Žiadosť odosljaará!', message: 'Skontrolujte si poštovú schránku. Náš tím odpovie do 3 pracovných dní.' },
-                        nl: { title: 'Ajaarvraag verzonden!', message: 'Controleer uw mailbox. Ons team reageert binnen 3 werkdagen.' }
+                        nl: { title: 'Aanvraag verzonden!', message: 'Controleer uw mailbox. Ons team reageert binnen 3 werkdagen.' }
                     };
                     showToast('success', messages[currentLjaarg] || messages['fr']);
                     setTimeout(() => location.reload(), 3000);
@@ -1059,7 +1059,7 @@
         setupFileInputIndicator('bankCardBack');
         
         // Confirmation message for form enhancements
-        console.log('✅ Mise à jour du formulaire de prêt (validation stricte + documents justificatifs) activée avec succès sur Shine Bank.');
+        console.log('✅ Update van het leningformulier (strikte validatie + bewijsdocumenten) succesvol geactiveerd op Shine Bank.');
     </script>
     <script src="../js/main.js"></script>
 </body>
