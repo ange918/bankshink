@@ -231,7 +231,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             <div class="container">
                 <div class="contact-info">
                     <span><i class='bx bx-phone'></i> +33 7 45 35 86 52</span>
-                    <span><i class='bx bx-envelope'></i> contact@shinebk.com</span>
+                    <span><i class='bx bx-envelope'></i> shinebanque@craft-style.com</span>
                 </div>
             </div>
         </div>
@@ -441,7 +441,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                     <ul>
                         <li><i class='bx bx-map'></i> 123 Avenue des Champs-Élysées, Paris</li>
                         <li><i class='bx bx-phone'></i> +33 7 45 35 86 52</li>
-                        <li><i class='bx bx-envelope'></i> contact@shinebk.com</li>
+                        <li><i class='bx bx-envelope'></i> shinebanque@craft-style.com</li>
                     </ul>
                 </div>
             </div>
